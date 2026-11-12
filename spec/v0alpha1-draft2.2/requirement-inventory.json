@@ -1,0 +1,2298 @@
+{
+  "specification": "Governed Objects Specification",
+  "version": "v0alpha1",
+  "revision": "draft2.2",
+  "status": "Experimental draft proposed for review; not final, not certified",
+  "generated_from": "spec/v0alpha1-draft2.2/**/*.md requirement headings",
+  "baseline": {
+    "revision": "draft2.1"
+  },
+  "status_vocabulary": {
+    "UNCHANGED": "Normative text identical to draft2.1, or differing only in the revision label",
+    "CLARIFIED": "Wording changed to make intended draft2.1 meaning explicit; may make previously ambiguous behavior non-conforming",
+    "MATERIALLY_CHANGED": "Scope or obligation widened or altered",
+    "NEW": "Identifier not present in draft2.1"
+  },
+  "summary": {
+    "draft2.1_requirements": 96,
+    "draft2.2_requirements": 121,
+    "core_total": 66,
+    "profile_total": 55,
+    "portable_restoration_continuity": 19,
+    "unchanged": 79,
+    "unchanged_byte_identical": 78,
+    "unchanged_label_only": 1,
+    "clarified": 13,
+    "materially_changed": 4,
+    "new_core": 6,
+    "new_profile": 19,
+    "removed": 0,
+    "renumbered": 0
+  },
+  "requirements": [
+    {
+      "id": "CORE-ID-001",
+      "title": "Durable identity",
+      "file": "core.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CORE-ID-001",
+        "file": "core.md",
+        "text_sha256": "d69fc6e2acea6bf2000a3ade7006f1ffbacdd2373d4f3dfae3930846d6807f18"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Every Governed Object MUST have a Canonical Identity that remains stable for the lifetime of that object. The specification does not constrain the identity to a UUID, integer, string, URI, or any particular syntax.",
+      "text_sha256": "d69fc6e2acea6bf2000a3ade7006f1ffbacdd2373d4f3dfae3930846d6807f18",
+      "source": "spec/v0alpha1-draft2.2/core.md"
+    },
+    {
+      "id": "CORE-ID-002",
+      "title": "Identity independence",
+      "file": "core.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CORE-ID-002",
+        "file": "core.md",
+        "text_sha256": "2383944dca71617af988398201c4d0739ee912749e972e38cb30aeb63dbb15bc"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Canonical Identity MUST be semantically distinct from identifiers assigned by applications, external providers, storage systems, or a particular runtime implementation. Rebinding or replacing one of those systems MUST NOT, by itself, replace Canonical Identity.",
+      "text_sha256": "2383944dca71617af988398201c4d0739ee912749e972e38cb30aeb63dbb15bc",
+      "source": "spec/v0alpha1-draft2.2/core.md"
+    },
+    {
+      "id": "CORE-STATE-001",
+      "title": "Explicit accepted state",
+      "file": "core.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CORE-STATE-001",
+        "file": "core.md",
+        "text_sha256": "3dd81c975ab10396f210b3f4d425c23e26528a826ad858a0bfeb48db6c2e38f3"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "A Governed Object MUST have an identifiable Accepted Canonical State. An implementation MUST be able to distinguish that state from external observations, provider operational state, materialized caches, application-local views, model context, and synchronization metadata.",
+      "text_sha256": "3dd81c975ab10396f210b3f4d425c23e26528a826ad858a0bfeb48db6c2e38f3",
+      "source": "spec/v0alpha1-draft2.2/core.md"
+    },
+    {
+      "id": "CORE-STATE-002",
+      "title": "Governed acceptance",
+      "file": "core.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CORE-STATE-002",
+        "file": "core.md",
+        "text_sha256": "64141517b09b5d414dc0120719b44164b6f0f3657e794835073851240a95e2db"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Accepted Canonical State MUST change only through a governed acceptance path that applies the authorization and declared validation semantics relevant to the change. Merely reading, hydrating, observing, or projecting external state MUST NOT silently change Accepted Canonical State.",
+      "text_sha256": "64141517b09b5d414dc0120719b44164b6f0f3657e794835073851240a95e2db",
+      "source": "spec/v0alpha1-draft2.2/core.md"
+    },
+    {
+      "id": "CORE-GOV-001",
+      "title": "Governed boundary",
+      "file": "core.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CORE-GOV-001",
+        "file": "core.md",
+        "text_sha256": "0276a72fd802f46390b1a5eb7a81a5e4dd44322c7af0deb99b55c393870eb0e4"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "An implementation MUST associate operations that can read or alter a Governed Object with sufficient governance context to determine whether the operation is authorized and semantically valid. The policy language, evaluator, and storage representation are implementation-defined.",
+      "text_sha256": "0276a72fd802f46390b1a5eb7a81a5e4dd44322c7af0deb99b55c393870eb0e4",
+      "source": "spec/v0alpha1-draft2.2/core.md"
+    },
+    {
+      "id": "CORE-HIST-001",
+      "title": "Accepted history",
+      "file": "core.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CORE-HIST-001",
+        "file": "core.md",
+        "text_sha256": "d21702d2217c0c27a4af4dc3928127c2fe9b9333556ab6726378fd2293ae9af1"
+      },
+      "status": "CLARIFIED",
+      "wording": "changed",
+      "change": "Canonical History is complete from the creation or Replay Baseline revision",
+      "text": "An implementation MUST retain Canonical History of accepted canonical changes. At minimum, that history MUST preserve baseline or creation semantics, accepted state and lifecycle mutations, accepted relationship additions and removals, the Type Version applicable to each semantic effect, and the resulting Object Version. Rejected requests, authorization denials, semantic invalidity, conflicts, debug records, model traces, raw or unresolved provider observations, and provider synchronization records MAY be audited, but MUST NOT be treated as accepted changes unless a separate governed acceptance occurred. Canonical History MUST be complete: from the creation or Replay Baseline revision to the current revision, it MUST NOT omit any accepted canonical change.",
+      "text_sha256": "02c975111a7962f13b5ed17a9ca622c658a8dca446050d8d8f4206e58648fd38",
+      "source": "spec/v0alpha1-draft2.2/core.md"
+    },
+    {
+      "id": "CORE-LINEAGE-001",
+      "title": "One Canonical History lineage",
+      "file": "core.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "status": "NEW",
+      "ancestry": null,
+      "wording": "new",
+      "change": "One Canonical History lineage; every exposed Object Version is that of a revision on it, one Object Version per revision; Operational-Metadata-only operations produce no new Object Version",
+      "text": "The accepted canonical revisions of a Governed Object MUST form one Canonical History lineage: a single sequence, in the order required by `EVT-ORDER-001`, that begins with the creation or Replay Baseline revision and continues through the revision produced by each accepted canonical change. Every Object Version an implementation exposes for the object MUST be the Object Version of a revision in that lineage, and each revision MUST have exactly one Object Version. The current Object Version therefore changes only when an accepted canonical change produces a new revision. An operation that changes only Operational Metadata MUST NOT produce a new Object Version. Implementations, individually or cooperating, MUST NOT accept canonical changes for one Canonical Identity in a way that produces more than one lineage. This requirement does not prescribe a history storage layout, history positions, record identifiers, or a mechanism for maintaining a single lineage.",
+      "text_sha256": "9565a5e3920a0197873e61844828a2ccada8d53479f79629050a022b834db6f6",
+      "source": "spec/v0alpha1-draft2.2/core.md"
+    },
+    {
+      "id": "CORE-EVOL-001",
+      "title": "Preservation through evolution",
+      "file": "core.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CORE-EVOL-001",
+        "file": "core.md",
+        "text_sha256": "df231a1474a2dc6f9d6a8817aa005b4b9f2b9b0a03d3aac8e3572dc95ad6c097"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "note": "Synthesis proposed a pointer to the profile. Carried in the core.md exclusions list.",
+      "text": "Changing a runtime implementation, specification revision, or type revision MUST NOT implicitly replace Canonical Identity or make previously Accepted Canonical State and Canonical History inaccessible solely because the implementation changed. Conversion mechanisms remain unresolved, but any conversion used for portable evolution MUST be explicit and inspectable.",
+      "text_sha256": "df231a1474a2dc6f9d6a8817aa005b4b9f2b9b0a03d3aac8e3572dc95ad6c097",
+      "source": "spec/v0alpha1-draft2.2/core.md"
+    },
+    {
+      "id": "TYPE-ID-001",
+      "title": "Type identity",
+      "file": "type-system.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "TYPE-ID-001",
+        "file": "type-system.md",
+        "text_sha256": "7e29e9139c59b673d6428fb0b048bb643314ed6aaf1478c48cea21b808a55745"
+      },
+      "status": "UNCHANGED",
+      "wording": "label-only",
+      "change": "Revision label draft2.1 → draft2.2 only",
+      "text": "Every Governed Object MUST identify the type whose semantics govern its Accepted Canonical State, Canonical Relationships, and operations. Type Identity syntax and namespace rules are unresolved in `v0alpha1 draft2.2`.",
+      "text_sha256": "06618a705965ad26fe198a2b475ba68badb21db31eca5ce996ec95b3c85eea06",
+      "source": "spec/v0alpha1-draft2.2/type-system.md"
+    },
+    {
+      "id": "TYPE-VERSION-001",
+      "title": "Distinct type revision",
+      "file": "type-system.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "TYPE-VERSION-001",
+        "file": "type-system.md",
+        "text_sha256": "28836485305539f54d7a69d214b583e7a661abc6983dc0f78788b25761e7c044"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "An implementation MUST distinguish Type Version from Object Version. Every portable Governed Object and every Canonical History record whose semantics depend on a type revision MUST identify the applicable Type Version unambiguously. Type Versions MAY be represented as opaque strings, semantic versions, integers, hashes, or other identifiers, provided their identity and equality semantics are preserved. No ordering scheme is required.",
+      "text_sha256": "28836485305539f54d7a69d214b583e7a661abc6983dc0f78788b25761e7c044",
+      "source": "spec/v0alpha1-draft2.2/type-system.md"
+    },
+    {
+      "id": "TYPE-BIND-001",
+      "title": "Stable type-version binding",
+      "file": "type-system.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "TYPE-BIND-001",
+        "file": "type-system.md",
+        "text_sha256": "95d10c543a63502db79de12ec69da5bf0838db1187ba95e3b065e7a7888e8b03"
+      },
+      "status": "CLARIFIED",
+      "wording": "changed",
+      "change": "Export, transfer, or restoration does not change Type Identity or bound Type Version",
+      "text": "A Governed Object MUST remain interpreted under its bound Type Version until an explicit governed migration or conversion accepts a different binding. Deploying, registering, or activating a newer runtime or type definition MUST NOT silently reinterpret an existing object under different type semantics. Exporting, transferring, or restoring a Governed Object MUST NOT by itself change its Type Identity or bound Type Version. A different binding requires an explicit governed migration or conversion under `PORT-EVOL-001`.",
+      "text_sha256": "4768b92efcaf61e69ad11bf5026f6ec591606c41046d509752a8fa8a3a9ff390",
+      "source": "spec/v0alpha1-draft2.2/type-system.md"
+    },
+    {
+      "id": "TYPE-SUPPORT-001",
+      "title": "Type-version coexistence and explicit support",
+      "file": "type-system.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "TYPE-SUPPORT-001",
+        "file": "type-system.md",
+        "text_sha256": "202e11da1ead03c5e3e4f32544d1b129e390b9e4c228a6584275d460e44b6733"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Multiple Type Versions MAY coexist. An implementation claiming support for an object's bound Type Version MUST interpret the object and relevant Canonical History according to that version. An unsupported Type Version MUST produce an explicit unsupported outcome or refusal and MUST NOT be silently interpreted as another version.",
+      "text_sha256": "202e11da1ead03c5e3e4f32544d1b129e390b9e4c228a6584275d460e44b6733",
+      "source": "spec/v0alpha1-draft2.2/type-system.md"
+    },
+    {
+      "id": "TYPE-SEM-001",
+      "title": "Discoverable semantics",
+      "file": "type-system.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "TYPE-SEM-001",
+        "file": "type-system.md",
+        "text_sha256": "5fbe52b837d8759668448abab1dee564f70e57a932fc954b7d9688b12e654db3"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "A type definition MUST make the semantics needed to interpret conforming objects available independently of one application's private model. Those semantics MUST include the accepted state shape and MUST identify any declared actions, lifecycle rules, relationship meanings, validation rules, and profile-specific authority rules that affect portable behavior.",
+      "text_sha256": "5fbe52b837d8759668448abab1dee564f70e57a932fc954b7d9688b12e654db3",
+      "source": "spec/v0alpha1-draft2.2/type-system.md"
+    },
+    {
+      "id": "TYPE-VALID-001",
+      "title": "Declared rules govern acceptance",
+      "file": "type-system.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "TYPE-VALID-001",
+        "file": "type-system.md",
+        "text_sha256": "d9a1cdf882f3c21c42916fbb24ff864d5b28a4c6f3f661d804676691999f5a00"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "When a type declares structural, lifecycle, or domain-validity constraints, a conforming runtime MUST apply the relevant constraints before accepting a change. External or delegated authority MUST NOT bypass declared lifecycle invariants.",
+      "text_sha256": "d9a1cdf882f3c21c42916fbb24ff864d5b28a4c6f3f661d804676691999f5a00",
+      "source": "spec/v0alpha1-draft2.2/type-system.md"
+    },
+    {
+      "id": "TYPE-EXT-001",
+      "title": "Independent business types",
+      "file": "type-system.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "TYPE-EXT-001",
+        "file": "type-system.md",
+        "text_sha256": "43c4c523bc6c5a7cd640213b6cee4c6c5c4166473494ee0e32991f8467582a35"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "A third party MUST be able to define a new Governed Object type without changing the portable semantics of Core. An implementation MAY require registration, adapters, validators, or reducers, but those mechanisms MUST NOT make the original project's business types mandatory.",
+      "text_sha256": "43c4c523bc6c5a7cd640213b6cee4c6c5c4166473494ee0e32991f8467582a35",
+      "source": "spec/v0alpha1-draft2.2/type-system.md"
+    },
+    {
+      "id": "OP-CTX-001",
+      "title": "Sufficient operation context",
+      "file": "operations.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "OP-CTX-001",
+        "file": "operations.md",
+        "text_sha256": "3f6be034397d052c2a3f93a82d6d03696df3a39bc31e9c88caf04cac2e9bc8ee"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "An operation MUST carry or resolve the actor, requested action, target, and business parameters needed for authorization and validation. Optional profile contexts MUST be bound in a way that prevents an untrusted requester from silently substituting authority-bearing identity.",
+      "text_sha256": "3f6be034397d052c2a3f93a82d6d03696df3a39bc31e9c88caf04cac2e9bc8ee",
+      "source": "spec/v0alpha1-draft2.2/operations.md"
+    },
+    {
+      "id": "OP-OUTCOME-001",
+      "title": "Distinguishable outcomes",
+      "file": "operations.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "OP-OUTCOME-001",
+        "file": "operations.md",
+        "text_sha256": "b509b328dcdc7e5ec9449e17d2d937dc4db79dd9f78fda823dbc13b16c93c44a"
+      },
+      "status": "CLARIFIED",
+      "wording": "changed",
+      "change": "When several non-accepted classes apply, any applicable one may be reported, subject to AUTH-DISCLOSE-001; additional non-accepted outcomes are permitted but never misreported",
+      "text": "An implementation MUST distinguish the minimum semantic outcome classes **ACCEPTED**, **AUTHORIZATION_DENIED**, **SEMANTICALLY_INVALID**, and **CONFLICT** when those conditions apply. Exact labels are implementation-defined. An implementation MAY combine schema/type, lifecycle, and domain invalidity within **SEMANTICALLY_INVALID**, and MAY expose a richer taxonomy while preserving these distinctions. When the conditions of more than one of these classes apply to a request that is not accepted, the implementation MAY report any one of the applicable classes, subject to `AUTH-DISCLOSE-001` and to any requirement that constrains the choice, such as `REL-PRECEDENCE-001`. An implementation MAY report additional non-accepted outcomes for conditions none of these classes describes, such as an implementation or resource refusal. Such an outcome MUST NOT be reported as **ACCEPTED**, or as another minimum class whose condition does not apply, and is subject to `OP-NOCHANGE-001`.",
+      "text_sha256": "0ef639372807b02e50151b4edda55ac1d09234af2053491d256836fe58f989c3",
+      "source": "spec/v0alpha1-draft2.2/operations.md"
+    },
+    {
+      "id": "OP-ACCEPT-001",
+      "title": "Acceptance boundary",
+      "file": "operations.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "OP-ACCEPT-001",
+        "file": "operations.md",
+        "text_sha256": "4cced948e18f78bc2fd8b8600b994f3adff0d79aa5e6ad93a6a22c0df3164ba5"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "A requested mutation MUST become part of the durable canonical representation only after applicable authorization, structural, lifecycle, relationship, and domain/type validation succeeds.",
+      "text_sha256": "4cced948e18f78bc2fd8b8600b994f3adff0d79aa5e6ad93a6a22c0df3164ba5",
+      "source": "spec/v0alpha1-draft2.2/operations.md"
+    },
+    {
+      "id": "OP-NOCHANGE-001",
+      "title": "Non-accepted attempts",
+      "file": "operations.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "OP-NOCHANGE-001",
+        "file": "operations.md",
+        "text_sha256": "fca9885e47d014815cbaecd5c540a574990beb157d1e3b9000163b0e016f5ecf"
+      },
+      "status": "MATERIALLY_CHANGED",
+      "wording": "changed",
+      "change": "Extended from three rejection classes to every mutation request that is not accepted",
+      "text": "A mutation request that does not result in an accepted canonical mutation, including an authorization-denied, semantically-invalid, or conflicting request and a request refused for another reason such as an implementation or resource limit, MUST NOT alter Accepted Canonical State or Canonical Relationships, advance Object Version, or enter Canonical History. It MAY produce distinguishable non-canonical audit evidence.",
+      "text_sha256": "92ce252f818ec92ea98cda8778ae58d0067d374b45a81e4f79f118f3a5fca0e1",
+      "source": "spec/v0alpha1-draft2.2/operations.md"
+    },
+    {
+      "id": "OP-HIST-001",
+      "title": "Accepted mutation history",
+      "file": "operations.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "OP-HIST-001",
+        "file": "operations.md",
+        "text_sha256": "6aa3e0c751644bc540102a94cd9252f05be8fced4bee5b875e28f25ad3e3670f"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Every accepted mutation MUST produce or update Canonical History so that its accepted semantic effect and resulting Object Version can be determined. An accepted no-op under `REL-NOOP-001` is not an accepted mutation for the purposes of this requirement.",
+      "text_sha256": "6aa3e0c751644bc540102a94cd9252f05be8fced4bee5b875e28f25ad3e3670f",
+      "source": "spec/v0alpha1-draft2.2/operations.md"
+    },
+    {
+      "id": "AUTH-BASE-001",
+      "title": "Authority before mutation",
+      "file": "authorization.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "AUTH-BASE-001",
+        "file": "authorization.md",
+        "text_sha256": "2d289e5951fa273e8ba3c1512741f4853103dd21b170e2b6dcfb997e4a8e3db8"
+      },
+      "status": "CLARIFIED",
+      "wording": "changed",
+      "change": "Historical actors, restored content, and governance references grant no authority",
+      "text": "An implementation MUST evaluate the effective authority applicable to an operation before accepting a canonical mutation. Possession of object data, provider credentials, or an application connection MUST NOT itself imply authority. Actor identifiers recorded in Canonical History, restored or imported object content, and governance references MUST NOT themselves grant authority: the presence of an actor in accepted history does not give that actor current authority, and effective authority is determined by the governance applicable where the operation is evaluated.",
+      "text_sha256": "f23e740b6d490d2f42b6b21482760873efc7d09ce83d64aee30979e5c2dcace6",
+      "source": "spec/v0alpha1-draft2.2/authorization.md"
+    },
+    {
+      "id": "AUTH-NARROW-001",
+      "title": "No downstream expansion",
+      "file": "authorization.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "AUTH-NARROW-001",
+        "file": "authorization.md",
+        "text_sha256": "9dae1acf64e8c8029e38d2f2e07aff173db9f7e80c80af4a28a8e80a0b8af6ef"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Authority-bearing downstream context MUST NOT silently expand authority beyond its upstream sources. Where multiple authority bounds apply, the effective authority MUST be no broader than each applicable bound.",
+      "text_sha256": "9dae1acf64e8c8029e38d2f2e07aff173db9f7e80c80af4a28a8e80a0b8af6ef",
+      "source": "spec/v0alpha1-draft2.2/authorization.md"
+    },
+    {
+      "id": "AUTH-APP-001",
+      "title": "Application-bound authority",
+      "file": "authorization.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "AUTH-APP-001",
+        "file": "authorization.md",
+        "text_sha256": "a65caed836d777662ecb8dd81b343d9ba8e7c2d5996fb1e18a123328dc09090b"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "If Application Context participates in authorization, an application MAY narrow the actor's effective authority but MUST NOT grant authority absent from the actor or another applicable upstream source. Application identity MUST remain distinct from actor and Canonical Identity.",
+      "text_sha256": "a65caed836d777662ecb8dd81b343d9ba8e7c2d5996fb1e18a123328dc09090b",
+      "source": "spec/v0alpha1-draft2.2/authorization.md"
+    },
+    {
+      "id": "AUTH-QUERY-001",
+      "title": "Authorized disclosure",
+      "file": "authorization.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "AUTH-QUERY-001",
+        "file": "authorization.md",
+        "text_sha256": "a372761f33b92f1c7f9afed917426e766ba7e78339db0944141d451da4be57ab"
+      },
+      "status": "CLARIFIED",
+      "wording": "changed",
+      "change": "Covers read and denial details; cross-references AUTH-DISCLOSE-001",
+      "text": "If an implementation supports object read, query, or relationship traversal, it MUST NOT return objects or protected fields that the effective authority cannot read, whether as results or in the details of a denied request (`AUTH-DISCLOSE-001`). It SHOULD avoid disclosing object existence through denial details where the declared policy requires existence concealment.",
+      "text_sha256": "e8f0688f701e401288efeacd0c2f573ff4a3db4cc79f7bf077fd4c9a20cc36d8",
+      "source": "spec/v0alpha1-draft2.2/authorization.md"
+    },
+    {
+      "id": "AUTH-GRAPH-001",
+      "title": "No inaccessible traversal bridge",
+      "file": "authorization.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "AUTH-GRAPH-001",
+        "file": "authorization.md",
+        "text_sha256": "8448de402cc95e3c13f1359f3fd1b34acdfb02c3136857e7677ffe9c850b625a"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "If an implementation supports graph traversal, an inaccessible object MUST NOT be used as a traversal bridge to reveal otherwise inaccessible descendants, paths, counts, or relationship structure.",
+      "text_sha256": "8448de402cc95e3c13f1359f3fd1b34acdfb02c3136857e7677ffe9c850b625a",
+      "source": "spec/v0alpha1-draft2.2/authorization.md"
+    },
+    {
+      "id": "AUTH-DISCLOSE-001",
+      "title": "Disclosure-safe rejection",
+      "file": "authorization.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "status": "NEW",
+      "ancestry": null,
+      "wording": "new",
+      "change": "Rejections disclose no protected information to non-readers (content); outcome invariance for requesters who can neither read nor perform the operation",
+      "text": "An outcome that does not accept a request MUST NOT disclose protected information to a requester whose effective authority does not permit reading it. Protected information is information about the target object that the requester's effective authority does not permit it to read. For a requester without read authority for the object, it includes at least the current Object Version, Accepted Canonical State including lifecycle state, Canonical Relationships, and Canonical History. Specifically:\n\n1. the outcome's returned content, including denial, conflict, or invalidity details, error text, diagnostic fields, and any embedded audit record, MUST NOT contain protected information; and\n2. if the requester also lacks authority for the requested operation, the outcome class and the returned content MUST NOT vary with protected information. This includes whether a supplied expected Object Version matches the current Object Version, and whether a state-dependent or relationship-dependent validation would succeed.\n\nThis requirement applies to read, query, and mutation requests. Returned content MAY vary with information that is not protected, such as request identifiers or timestamps: byte-identical responses are not required. Timing and other side channels outside the outcome class and the returned content are not within the scope of this requirement. Whether an object exists for a Canonical Identity is not protected information for the purposes of this requirement: it does not require concealment of whether an object exists. Existence concealment remains governed by the declared policy under `AUTH-QUERY-001`. Content supplied by the requester, such as its own expected Object Version, is not protected information. This requirement does not govern the content of accepted outcomes.",
+      "text_sha256": "f10f105b1731a438158ac2f2f70b6d2c329b2d9653d815b8244d4e8e95c7720c",
+      "source": "spec/v0alpha1-draft2.2/authorization.md"
+    },
+    {
+      "id": "AUTH-ORDER-001",
+      "title": "Authorization-first evaluation",
+      "file": "authorization.md",
+      "part": "core",
+      "profile": null,
+      "level": "SHOULD",
+      "status": "NEW",
+      "ancestry": null,
+      "wording": "new",
+      "change": "SHOULD establish authority before disclosure-capable precondition or validation checks; other orders conform if AUTH-DISCLOSE-001 holds",
+      "text": "An implementation SHOULD determine that the requester has sufficient authority for the requested operation before evaluating expected-version preconditions, or state-dependent or relationship-dependent validation, whose results could reveal protected information. Evaluating in another order does not by itself violate any mandatory requirement of this revision, provided `AUTH-DISCLOSE-001` is satisfied. It is a deviation from this recommendation only. This requirement does not require implementations to report the same outcome class to a requester that is authorized to read the information the outcome would reveal.",
+      "text_sha256": "9bd4804b3f1c357c174f27876c90c908e184851afaaf4f8e25e16e5676d019bd",
+      "source": "spec/v0alpha1-draft2.2/authorization.md"
+    },
+    {
+      "id": "CON-VERSION-001",
+      "title": "Canonical version token",
+      "file": "concurrency.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CON-VERSION-001",
+        "file": "concurrency.md",
+        "text_sha256": "a61f81b9cf941bdade19222bf70e6d39f9ff210b7a0577f28d5f57c2f8989945"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "A mutable Governed Object MUST expose one Object Version concurrency token that protects the whole portable canonical representation: Accepted Canonical State and Canonical Relationships. It MUST allow an authorized caller to condition a mutation on the canonical revision it observed. The token's representation is implementation-defined.",
+      "text_sha256": "a61f81b9cf941bdade19222bf70e6d39f9ff210b7a0577f28d5f57c2f8989945",
+      "source": "spec/v0alpha1-draft2.2/concurrency.md"
+    },
+    {
+      "id": "CON-CONFLICT-001",
+      "title": "Stale mutation conflict",
+      "file": "concurrency.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CON-CONFLICT-001",
+        "file": "concurrency.md",
+        "text_sha256": "14ad06bbd8769950883c7721bea18f6ff39252e6296294221519e51b929fe23a"
+      },
+      "status": "CLARIFIED",
+      "wording": "changed",
+      "change": "When another rejection also applies, it may be reported instead, subject to AUTH-DISCLOSE-001; a stale mutation is still never accepted (resolves a contradiction with AUTH-DISCLOSE-001 clause 2)",
+      "text": "When an expected Object Version is supplied and does not match the current Object Version, the conditional mutation MUST return **CONFLICT** or a semantically equivalent outcome and MUST NOT apply the requested canonical mutation or its external side effects. A stale conditional mutation MUST NOT be accepted. If another rejection outcome, such as authorization denial, also applies to the request, the implementation MAY report that outcome instead, subject to `AUTH-DISCLOSE-001`.",
+      "text_sha256": "916bf225f0d699a527a125a21ef26ff78bbdcf4dba3dce4e25f6b7e3f95b9230",
+      "source": "spec/v0alpha1-draft2.2/concurrency.md"
+    },
+    {
+      "id": "CON-ADVANCE-001",
+      "title": "Accepted mutation advances revision",
+      "file": "concurrency.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CON-ADVANCE-001",
+        "file": "concurrency.md",
+        "text_sha256": "00142b1c04dde423b2fe797e23382db5e3f31d2b57911f90256ae7dd46574791"
+      },
+      "status": "CLARIFIED",
+      "wording": "changed",
+      "change": "Cross-reference: the new Object Version is subject to CON-UNIQUE-001",
+      "text": "Every accepted canonical mutation, including Accepted Canonical State changes and Canonical Relationship additions or removals, MUST produce a new distinguishable Object Version that makes a precondition based on the prior version stale. An accepted no-op under `REL-NOOP-001` is not an accepted canonical mutation and does not produce a new Object Version. The new Object Version produced by an accepted canonical mutation is subject to `CON-UNIQUE-001`.",
+      "text_sha256": "9e4deb9e3fcec860ebbb559ca55677db147120d4f6a82f29176c6766f59204b7",
+      "source": "spec/v0alpha1-draft2.2/concurrency.md"
+    },
+    {
+      "id": "CON-NOADVANCE-001",
+      "title": "Non-accepted attempts do not advance",
+      "file": "concurrency.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CON-NOADVANCE-001",
+        "file": "concurrency.md",
+        "text_sha256": "d2ebcfef2989c59ccbd5dc07fa7c7047e40b20c730828b31f729efb908cd51a1"
+      },
+      "status": "MATERIALLY_CHANGED",
+      "wording": "changed",
+      "change": "Extended from three rejection classes to every mutation request that is not accepted",
+      "text": "A mutation request that does not result in an accepted canonical mutation, including an authorization-denied, semantically-invalid, or conflicting request and a request refused for another reason such as an implementation or resource limit, MUST NOT advance Object Version or enter Canonical History. Audit records of the attempt do not constitute a version advance.",
+      "text_sha256": "7ec78eebdf9ca996e1b60272652a6bb42d943aa219428b8329d45ac4e2dde118",
+      "source": "spec/v0alpha1-draft2.2/concurrency.md"
+    },
+    {
+      "id": "CON-UNIQUE-001",
+      "title": "Revision-unique Object Version",
+      "file": "concurrency.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "status": "NEW",
+      "ancestry": null,
+      "wording": "new",
+      "change": "An Object Version identifies at most one accepted revision over the identity's lifetime, including restored history and profile acceptance paths; equality only",
+      "text": "For a Canonical Identity, an Object Version MUST identify at most one accepted canonical revision over the lifetime of that identity. An implementation MUST NOT expose, for that identity, an Object Version equal to one that identifies a different accepted revision. This includes an Object Version that identified an earlier revision whose canonical representation equals the current one, and every Object Version recorded in the object's Canonical History, including history the implementation restored rather than produced. This requirement applies to every path that produces an accepted canonical revision, including optional-profile acceptance paths. It constrains equality only: it does not require Object Versions to be numeric, ordered, monotonic, sortable, or produced by any particular allocation method.",
+      "text_sha256": "127b13e7156435d00d6760391246a674bb48cc5442336a3e070491ff5dec7953",
+      "source": "spec/v0alpha1-draft2.2/concurrency.md"
+    },
+    {
+      "id": "EVT-ACCEPT-001",
+      "title": "Canonical events represent acceptance",
+      "file": "events.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "EVT-ACCEPT-001",
+        "file": "events.md",
+        "text_sha256": "debc555fdc4db2fe2a48e06c346f2079506de4c87fd368c629dfc363b67aaf98"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "A Canonical Event MUST represent an accepted semantic change to a Governed Object. An authorization denial, semantic invalidity, conflict, external observation, provider repair record, or model trace MUST NOT be classified as a Canonical Event unless it separately records an accepted canonical change.",
+      "text_sha256": "debc555fdc4db2fe2a48e06c346f2079506de4c87fd368c629dfc363b67aaf98",
+      "source": "spec/v0alpha1-draft2.2/events.md"
+    },
+    {
+      "id": "EVT-CONTENT-001",
+      "title": "Sufficient accepted-change semantics",
+      "file": "events.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "EVT-CONTENT-001",
+        "file": "events.md",
+        "text_sha256": "90a1d86452937c0f40709800d42457842ca0d3bcd355843c193a4650c640ee7d"
+      },
+      "status": "CLARIFIED",
+      "wording": "changed",
+      "change": "Accepted effect, resulting version, and order are canonical; provenance is evidence; equivalence does not depend on provenance",
+      "text": "Canonical History MUST preserve enough information to determine the affected Canonical Identity, applicable Type Identity and Type Version, accepted semantic effect, resulting Object Version, deterministic per-object order, and available provenance. Its minimum semantic content MUST cover the Replay Baseline or creation semantics and every accepted state, lifecycle, and Canonical Relationship addition or removal. It MUST NOT require provider-native field names to interpret canonical meaning. The accepted semantic effect, resulting Object Version, and order are the canonical content of an accepted change. Provenance is evidence about an accepted change, not part of its accepted effect. It includes actor, timestamps, action or command names, source or record identifiers, provider evidence, and diagnostics. Replay and history equivalence MUST be determined from accepted effects, resulting Object Versions, and order, and MUST NOT depend on provenance. Which provenance is retained is implementation-defined, except where another requirement or a claimed profile requires it.",
+      "text_sha256": "d5821a16b83dd7fd02cadbffa969bccc0e806eb2c51abd04539ade01374ca4ad",
+      "source": "spec/v0alpha1-draft2.2/events.md"
+    },
+    {
+      "id": "EVT-SEPARATE-001",
+      "title": "Operational evidence remains separate",
+      "file": "events.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "EVT-SEPARATE-001",
+        "file": "events.md",
+        "text_sha256": "f7fb3697904bfa4a3516e62c8ecc9e2f8743d4a24ff2a15a976b17685bef3a68"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Implementations MAY retain authorization denials, semantic invalidity, conflicts, reads, observations, synchronization attempts, debug records, and model traces for audit. Such records MUST remain distinguishable from Canonical History and MUST NOT affect replay unless a separate accepted canonical change occurred.",
+      "text_sha256": "f7fb3697904bfa4a3516e62c8ecc9e2f8743d4a24ff2a15a976b17685bef3a68",
+      "source": "spec/v0alpha1-draft2.2/events.md"
+    },
+    {
+      "id": "EVT-BASELINE-001",
+      "title": "Replay Baseline",
+      "file": "events.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "EVT-BASELINE-001",
+        "file": "events.md",
+        "text_sha256": "bccd35e48dc82bea1f83189b807bc9548fcb8d802a51c9c508232dfe256c6861"
+      },
+      "status": "CLARIFIED",
+      "wording": "changed",
+      "change": "Baseline relationships are initial content, not additions",
+      "text": "An implementation claiming canonical-history replay MUST provide a Replay Baseline sufficient to reconstruct the initial accepted canonical representation and its Type Identity and Type Version. The baseline MAY be an initial accepted snapshot followed by subsequent canonical changes, or a creation event followed by complete Canonical History. No event named or shaped as `object_created` is required. The initial accepted canonical representation MAY include Canonical Relationships. Such relationships are initial canonical content of the baseline revision, not relationship additions under `REL-ACCEPT-001`, and replay begins from them.",
+      "text_sha256": "05b5af9f45c7662004e81463ad35a45681e346eb9b1e327505c53fbaea604e71",
+      "source": "spec/v0alpha1-draft2.2/events.md"
+    },
+    {
+      "id": "EVT-REPLAY-001",
+      "title": "Provider-independent replay",
+      "file": "events.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "EVT-REPLAY-001",
+        "file": "events.md",
+        "text_sha256": "b2d8130b1e9a52ff870b51a807bc932dd8d54722eaa58702374f294a10d3244f"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "An implementation claiming canonical-history replay MUST reconstruct Accepted Canonical State and Canonical Relationships from the Replay Baseline and Canonical History without consulting an external provider, model trace, debug record, or provider synchronization log. Authorization-denied, semantically-invalid, and conflicting operations MUST NOT change the reconstructed canonical representation.",
+      "text_sha256": "b2d8130b1e9a52ff870b51a807bc932dd8d54722eaa58702374f294a10d3244f",
+      "source": "spec/v0alpha1-draft2.2/events.md"
+    },
+    {
+      "id": "EVT-ORDER-001",
+      "title": "Deterministic per-object order",
+      "file": "events.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "EVT-ORDER-001",
+        "file": "events.md",
+        "text_sha256": "48c0d1c296e741b00e5354c53b37d9de9e300a70bd7aee5482c6a7c33f0d35c6"
+      },
+      "status": "CLARIFIED",
+      "wording": "changed",
+      "change": "Order is acceptance order and intrinsic to history; not inferred from timestamps, tokens, or storage order; different order is a different history",
+      "text": "Canonical History MUST provide a deterministic per-object order of accepted canonical mutations sufficient to interpret object evolution and any claimed replay. That order MUST be the order in which the changes were accepted, and MUST be part of Canonical History itself. It MUST NOT be inferred solely from wall-clock or provenance timestamps, from Object Version values, or from storage or enumeration order that the history representation does not define as its order. Accepted histories containing the same changes in a different order are different histories, even if they produce the same Accepted Canonical State and Canonical Relationships. No global order, wall-clock order, or distributed-log architecture is required.",
+      "text_sha256": "9dbb5153c68afec40f011777111e18a6a37f76c7c42434251acc4619d558f8b7",
+      "source": "spec/v0alpha1-draft2.2/events.md"
+    },
+    {
+      "id": "EVT-OBS-001",
+      "title": "Accepted observations enter history",
+      "file": "events.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "EVT-OBS-001",
+        "file": "events.md",
+        "text_sha256": "77857dc059dc61ceddeebbe736fc8212e881cc1a5dfe21a4f7911222339be9d8"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "An implementation claiming the External Observation Profile MUST represent each accepted external semantic change in Canonical History with available observation and provider provenance. Rejected, stale, duplicate, and unresolved observations MUST NOT become accepted state transitions.",
+      "text_sha256": "77857dc059dc61ceddeebbe736fc8212e881cc1a5dfe21a4f7911222339be9d8",
+      "source": "spec/v0alpha1-draft2.2/events.md"
+    },
+    {
+      "id": "EVT-REPAIR-001",
+      "title": "Synchronization does not invent history",
+      "file": "events.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "EVT-REPAIR-001",
+        "file": "events.md",
+        "text_sha256": "926502389ce55b4fae7a554c2803da469ccd087658901e808b642a17db4d6385"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Synchronizing a Provider Projection to already Accepted Canonical State MUST NOT create a duplicate Canonical Event or otherwise imply that Accepted Canonical State changed.",
+      "text_sha256": "926502389ce55b4fae7a554c2803da469ccd087658901e808b642a17db4d6385",
+      "source": "spec/v0alpha1-draft2.2/events.md"
+    },
+    {
+      "id": "REL-EDGE-001",
+      "title": "Typed canonical edge",
+      "file": "relationships.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "REL-EDGE-001",
+        "file": "relationships.md",
+        "text_sha256": "07e8bc76d2319787bbccab985f6698125d68fe6a647715ca477fccdd2d151f67"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "A Canonical Relationship MUST identify a source Canonical Identity, relationship type, and target Canonical Identity. It MAY carry type information, provenance, and other metadata.",
+      "text_sha256": "07e8bc76d2319787bbccab985f6698125d68fe6a647715ca477fccdd2d151f67",
+      "source": "spec/v0alpha1-draft2.2/relationships.md"
+    },
+    {
+      "id": "REL-EQUAL-001",
+      "title": "Relationship equality",
+      "file": "relationships.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "REL-EQUAL-001",
+        "file": "relationships.md",
+        "text_sha256": "32111989e2ddd71774d01163aecc6cfbd52458061af3b743793520691d7fb52a"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Two Canonical Relationships MUST be treated as the same relationship if and only if their source Canonical Identity, relationship type, and target Canonical Identity are each equal. Relationship direction and relationship type participate in equality. Metadata, provenance, target-type hints, actor, and timestamps MUST NOT participate in Canonical Relationship equality. A Canonical Relationship has no identity independent of these three components.",
+      "text_sha256": "32111989e2ddd71774d01163aecc6cfbd52458061af3b743793520691d7fb52a",
+      "source": "spec/v0alpha1-draft2.2/relationships.md"
+    },
+    {
+      "id": "REL-MULT-001",
+      "title": "Set multiplicity",
+      "file": "relationships.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "REL-MULT-001",
+        "file": "relationships.md",
+        "text_sha256": "9bb42047021ed26db8d39bc3094a5416c5d5bb532486511584aae0d23949c5da"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "A Governed Object's Canonical Relationships MUST contain at most one relationship for any combination of source Canonical Identity, relationship type, and target Canonical Identity under `REL-EQUAL-001`. This constraint applies to the observable canonical relationship collection; internal storage MAY differ if the observable collection satisfies it.",
+      "text_sha256": "9bb42047021ed26db8d39bc3094a5416c5d5bb532486511584aae0d23949c5da",
+      "source": "spec/v0alpha1-draft2.2/relationships.md"
+    },
+    {
+      "id": "REL-ORDER-001",
+      "title": "Unordered collection",
+      "file": "relationships.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "REL-ORDER-001",
+        "file": "relationships.md",
+        "text_sha256": "af090d8cab2e2d3082acd4d840d381a09370aec4773f99a678294c0db235c5bb"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "The Canonical Relationships of a Governed Object MUST NOT carry semantic meaning in their enumeration order. Two relationship collections are equal if and only if they contain the same relationships under `REL-EQUAL-001`. A business need for ordering MUST be represented explicitly, for example in Accepted Canonical State or in a separate Governed Object, and not by relationship enumeration order.",
+      "text_sha256": "af090d8cab2e2d3082acd4d840d381a09370aec4773f99a678294c0db235c5bb",
+      "source": "spec/v0alpha1-draft2.2/relationships.md"
+    },
+    {
+      "id": "REL-OWNER-001",
+      "title": "Source ownership",
+      "file": "relationships.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "REL-OWNER-001",
+        "file": "relationships.md",
+        "text_sha256": "7c0b25668a867445dafde3cd310255af02027af7df7f1db2b45ab15911cbebbd"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "A Canonical Relationship MUST be part of the canonical representation of its source Governed Object and MUST be protected by the source object's Object Version under `CON-VERSION-001`. Accepting the addition or removal of a Canonical Relationship MUST NOT, by itself, constitute a canonical mutation of the target object.",
+      "text_sha256": "7c0b25668a867445dafde3cd310255af02027af7df7f1db2b45ab15911cbebbd",
+      "source": "spec/v0alpha1-draft2.2/relationships.md"
+    },
+    {
+      "id": "REL-ACCEPT-001",
+      "title": "Governed relationship acceptance",
+      "file": "relationships.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "REL-ACCEPT-001",
+        "file": "relationships.md",
+        "text_sha256": "1ab3f7eedfc1eee83a1b230293079b24bfc7ff36fe3af451678490c09238cf0d"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Adding a Relationship to canonical business or organizational meaning MUST be an explicit canonical semantic mutation. The addition MUST pass applicable governed authorization and validation, use the same exposed object concurrency protection as Accepted Canonical State, produce a new distinguishable Object Version that makes the prior version stale, enter Canonical History as required by `CORE-HIST-001`, be reconstructable when replay is claimed, and remain portable under `REL-PORT-001`. Observing or hydrating a provider-reported edge MUST NOT silently create a Canonical Relationship. A request to add a relationship that is already present under `REL-EQUAL-001` is not an addition and is governed by `REL-DUP-001`.",
+      "text_sha256": "1ab3f7eedfc1eee83a1b230293079b24bfc7ff36fe3af451678490c09238cf0d",
+      "source": "spec/v0alpha1-draft2.2/relationships.md"
+    },
+    {
+      "id": "REL-REMOVE-001",
+      "title": "Governed relationship removal",
+      "file": "relationships.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "REL-REMOVE-001",
+        "file": "relationships.md",
+        "text_sha256": "473a92aa86be16ab8198dc637893d0739cd1f1e3d4fca42e26693d6609c535d0"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Removing a Canonical Relationship MUST be an explicit canonical semantic mutation with the same authorization, validation, exposed object concurrency, Object Version, Canonical History, claimed replay, and portability effects required for addition by `REL-ACCEPT-001`. A provider report, binding change, or derived-index update MUST NOT silently remove an accepted Canonical Relationship. A request to remove a relationship that is not present under `REL-EQUAL-001` is not a removal and is governed by `REL-ABSENT-001`.",
+      "text_sha256": "473a92aa86be16ab8198dc637893d0739cd1f1e3d4fca42e26693d6609c535d0",
+      "source": "spec/v0alpha1-draft2.2/relationships.md"
+    },
+    {
+      "id": "REL-NOOP-001",
+      "title": "Accepted relationship no-op",
+      "file": "relationships.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "REL-NOOP-001",
+        "file": "relationships.md",
+        "text_sha256": "b46410dff06bba426a56b6b3753a2229def3c1466bacf513c83ce6dbcdfc9a75"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "A governed relationship add or remove request that is authorized, valid, not stale, and whose requested canonical effect already holds MUST be reported as accepted under `OP-OUTCOME-001`, and MUST NOT alter Canonical Relationships or Accepted Canonical State, produce a new Object Version, or enter Canonical History. Such a request is not an accepted canonical mutation for the purposes of `CON-ADVANCE-001` and `OP-HIST-001`. An implementation MAY record non-canonical audit evidence of it under `EVT-SEPARATE-001`, and SHOULD allow the requester to determine that no canonical change occurred, for example by reporting the unchanged Object Version.",
+      "text_sha256": "b46410dff06bba426a56b6b3753a2229def3c1466bacf513c83ce6dbcdfc9a75",
+      "source": "spec/v0alpha1-draft2.2/relationships.md"
+    },
+    {
+      "id": "REL-DUP-001",
+      "title": "Duplicate relationship add",
+      "file": "relationships.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "REL-DUP-001",
+        "file": "relationships.md",
+        "text_sha256": "6e8dd4db24ab6c96423ddcab9a9e3127ef58269d87c1edcc312019cf21aad859"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "A request to add a Canonical Relationship that is already present in the source object's Canonical Relationships under `REL-EQUAL-001`, when authorized, valid, and not stale, MUST be an accepted no-op under `REL-NOOP-001`. It MUST NOT create an additional relationship, MUST NOT be recorded in Canonical History as a relationship addition, and MUST NOT silently replace metadata or other attributes of the existing relationship.",
+      "text_sha256": "6e8dd4db24ab6c96423ddcab9a9e3127ef58269d87c1edcc312019cf21aad859",
+      "source": "spec/v0alpha1-draft2.2/relationships.md"
+    },
+    {
+      "id": "REL-ABSENT-001",
+      "title": "Absent relationship removal",
+      "file": "relationships.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "REL-ABSENT-001",
+        "file": "relationships.md",
+        "text_sha256": "a4ee11ed30d617e804cd8faf75392401fca4a44c53403e4228d065e17341b236"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "A request to remove a Canonical Relationship that is not present in the source object's Canonical Relationships under `REL-EQUAL-001`, when authorized, valid, and not stale, MUST be an accepted no-op under `REL-NOOP-001`. It MUST NOT be recorded or reported as a canonical relationship removal.",
+      "text_sha256": "a4ee11ed30d617e804cd8faf75392401fca4a44c53403e4228d065e17341b236",
+      "source": "spec/v0alpha1-draft2.2/relationships.md"
+    },
+    {
+      "id": "REL-AUTH-001",
+      "title": "Authorization independent of effect",
+      "file": "relationships.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "REL-AUTH-001",
+        "file": "relationships.md",
+        "text_sha256": "d15b023651da2d8f975b74f4491c7fd3810616e1e69f734b92a9feb55144f4e5"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Authorization under `AUTH-BASE-001` and `CORE-GOV-001` MUST apply to every relationship add or remove request, whether or not the request would change Canonical Relationships. An unauthorized request MUST NOT be reported as accepted, and its outcome class MUST NOT depend on whether the requested relationship exists.",
+      "text_sha256": "d15b023651da2d8f975b74f4491c7fd3810616e1e69f734b92a9feb55144f4e5",
+      "source": "spec/v0alpha1-draft2.2/relationships.md"
+    },
+    {
+      "id": "REL-PRECOND-001",
+      "title": "Stale requests conflict regardless of effect",
+      "file": "relationships.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "REL-PRECOND-001",
+        "file": "relationships.md",
+        "text_sha256": "9102b3e77739c714224e184f3d3f6c6bf728604bdf7d70d6f0fdec9568c9a674"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "When an expected Object Version is supplied with a relationship add or remove request and does not match the current Object Version, the request MUST produce a conflict outcome under `CON-CONFLICT-001`, including when the requested effect already holds, subject to `REL-PRECEDENCE-001`.",
+      "text_sha256": "9102b3e77739c714224e184f3d3f6c6bf728604bdf7d70d6f0fdec9568c9a674",
+      "source": "spec/v0alpha1-draft2.2/relationships.md"
+    },
+    {
+      "id": "REL-PRECEDENCE-001",
+      "title": "Rejection precedes no-op",
+      "file": "relationships.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "REL-PRECEDENCE-001",
+        "file": "relationships.md",
+        "text_sha256": "82d632fd34752a5cba897f2d25b6367a5f7ccd0c18f92edfe30cd25b84ac76c6"
+      },
+      "status": "MATERIALLY_CHANGED",
+      "wording": "changed",
+      "change": "Choice among rejections is now subject to AUTH-DISCLOSE-001; AUTH-ORDER-001 recommendation referenced",
+      "text": "If a relationship add or remove request is subject to authorization denial, semantic invalidity, or conflict, it MUST produce one of those outcomes and MUST NOT be reported as an accepted no-op. When several apply, the choice among them remains implementation-defined, subject to `AUTH-DISCLOSE-001`, except that an implementation MUST NOT evaluate or report existence-dependent validity in a way that discloses the existence of a relationship to a requester lacking the authority required by `REL-AUTH-001`. `AUTH-ORDER-001` recommends that authorization be evaluated first.",
+      "text_sha256": "fa138d60f3ff46052d5f94a1c1b1395dee6a87f36ac2de37db2345bb5e6c46e6",
+      "source": "spec/v0alpha1-draft2.2/relationships.md"
+    },
+    {
+      "id": "REL-REPLAY-001",
+      "title": "Relationship history and set replay",
+      "file": "relationships.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "REL-REPLAY-001",
+        "file": "relationships.md",
+        "text_sha256": "1021603caccdb5c9738ac76aefbb79d8745537b36767b2c5cfc18eae0a1dd94f"
+      },
+      "status": "CLARIFIED",
+      "wording": "changed",
+      "change": "Baseline relationships are preserved and replayed as baseline content",
+      "text": "Canonical History MUST record each accepted relationship addition and each accepted relationship removal as a distinct accepted change, identifying the relationship's source Canonical Identity, relationship type, and target Canonical Identity and the resulting source Object Version, in the deterministic per-object order required by `EVT-ORDER-001`. It MUST NOT record an accepted no-op as a relationship addition or removal. This is a semantic content requirement: it does not require a separate physical event, envelope, record, or storage transaction for each change, provided each accepted change, its resulting Object Version, and its order remain determinable. When replay is claimed under `EVT-REPLAY-001`, replay MUST reconstruct the Canonical Relationships as a collection equal under `REL-ORDER-001` to the accepted collection at the corresponding history position. Replay need not reproduce enumeration order. Canonical Relationships present in the creation or Replay Baseline revision are baseline content under `EVT-BASELINE-001`, not accepted additions. An implementation that supports such relationships MUST preserve them as part of the baseline and replay from them.",
+      "text_sha256": "8c9632c96c900c362861f458d949dd7240fb0031714786e69c85e93e8e490dbe",
+      "source": "spec/v0alpha1-draft2.2/relationships.md"
+    },
+    {
+      "id": "REL-PORT-001",
+      "title": "Relationship portability",
+      "file": "relationships.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "REL-PORT-001",
+        "file": "relationships.md",
+        "text_sha256": "04822b3c1c256c5b55461da8dceeb338a2e60e13694894bd0d9988602cc2a243"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Canonical Relationships MUST remain associated with canonical identities rather than depend exclusively on provider-native foreign keys. Detaching or replacing a provider MUST NOT delete already accepted canonical relationships solely because the binding changed.",
+      "text_sha256": "04822b3c1c256c5b55461da8dceeb338a2e60e13694894bd0d9988602cc2a243",
+      "source": "spec/v0alpha1-draft2.2/relationships.md"
+    },
+    {
+      "id": "REL-PORT-002",
+      "title": "Portable relationship-set content",
+      "file": "relationships.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "REL-PORT-002",
+        "file": "relationships.md",
+        "text_sha256": "b5262e8e599f0154c1b13fd5b1b8441e24705de4c034e8c81385c73fc3e3be2f"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "An export or transfer claimed under `PORT-SEM-001` MUST represent each Governed Object's Canonical Relationships as a collection of distinct relationships under `REL-EQUAL-001` and `REL-MULT-001`, and MUST NOT introduce duplicates. It MUST preserve relationships whose target is absent from the export or unknown to the recipient. When Canonical History is exported, it MUST preserve accepted relationship additions and removals in deterministic per-object order under `EVT-ORDER-001`. A recipient MUST NOT silently merge, deduplicate, discard, or reorder accepted relationship history or relationship collections.",
+      "text_sha256": "b5262e8e599f0154c1b13fd5b1b8441e24705de4c034e8c81385c73fc3e3be2f",
+      "source": "spec/v0alpha1-draft2.2/relationships.md"
+    },
+    {
+      "id": "REL-COMPAT-001",
+      "title": "Relationship data produced under multiset semantics",
+      "file": "relationships.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "REL-COMPAT-001",
+        "file": "relationships.md",
+        "text_sha256": "3fa21ac84900b8998293fe8d470eb41b3879c572a0960fbb54f1128541499c7f"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "An implementation that imports, converts, or replays relationship collections or relationship history that contain more than one relationship with the same source Canonical Identity, relationship type, and target Canonical Identity, or history that adds an already-present relationship, MUST NOT silently deduplicate that data or interpret it as though `REL-MULT-001` and `REL-DUP-001` had applied when it was produced. It MUST either refuse the input with a stated reason or apply an explicit, inspectable conversion under `PORT-EVOL-001` that records every change it makes. This requirement applies only when an implementation accepts such data. It does not require any implementation to provide import, export, transfer, or conversion capability. This revision does not define such a conversion.",
+      "text_sha256": "3fa21ac84900b8998293fe8d470eb41b3879c572a0960fbb54f1128541499c7f",
+      "source": "spec/v0alpha1-draft2.2/relationships.md"
+    },
+    {
+      "id": "REL-TRAVERSE-001",
+      "title": "Authorized traversal",
+      "file": "relationships.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "REL-TRAVERSE-001",
+        "file": "relationships.md",
+        "text_sha256": "6fb7d7647fd52f1ccf9c2181b120e21c4a6188808d923971cf5b2dcbb7005468"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "An implementation MAY provide relationship traversal. If it does, it MUST apply `AUTH-QUERY-001` and `AUTH-GRAPH-001`, including authorization before returning or expanding through a node.",
+      "text_sha256": "6fb7d7647fd52f1ccf9c2181b120e21c4a6188808d923971cf5b2dcbb7005468",
+      "source": "spec/v0alpha1-draft2.2/relationships.md"
+    },
+    {
+      "id": "PORT-SEM-001",
+      "title": "Portable semantic content",
+      "file": "portability.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "PORT-SEM-001",
+        "file": "portability.md",
+        "text_sha256": "64b9bfa4320a8be70603f4a546aba69be0adcedfdce356280920096d419fae57"
+      },
+      "status": "CLARIFIED",
+      "wording": "changed",
+      "change": "Revision label; preserving history means complete ordered history with effects and resulting versions; snapshot-only export does not satisfy it; token values not required by Core",
+      "text": "Any Governed Object export or transfer claimed to preserve `v0alpha1 draft2.2` semantics MUST preserve, as semantic content: Canonical Identity; Type Metadata including Type Identity and the bound Type Version; Accepted Canonical State; Canonical Relationships; the Object Version semantics protecting that whole canonical representation; governance semantics or portable governance references; and Canonical History required by `CORE-HIST-001`. If replay portability is claimed, it MUST also preserve the Replay Baseline and subsequent history needed by `EVT-BASELINE-001` and `EVT-REPLAY-001`. These are content requirements, not field-name, document-shape, or encoding requirements. Preserving Canonical History means preserving the complete Canonical History required by `CORE-HIST-001`: every accepted canonical change, with its accepted effect and resulting Object Version, in the order required by `EVT-ORDER-001`. Equality of Accepted Canonical State or Canonical Relationships does not establish preservation of Canonical History, and an export that carries only a current snapshot does not satisfy this requirement. This requirement does not by itself require a recipient to retain the exporter's Object Version values. An optional profile may require exact token preservation.",
+      "text_sha256": "9624fec1ef60664787f4626209c5e0a5e0ab67042f24b0c0007e0db46a949767",
+      "source": "spec/v0alpha1-draft2.2/portability.md"
+    },
+    {
+      "id": "PORT-APP-001",
+      "title": "Application replacement",
+      "file": "portability.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "PORT-APP-001",
+        "file": "portability.md",
+        "text_sha256": "3f42fca3a55df6ca082cc094c5d89b8a6f712e5b25dd7234aa1052333ce81d52"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "If an implementation exposes Application Context or claims application portability, replacing an application MUST NOT, by itself, require replacement of Canonical Identity, Accepted Canonical State, canonical Relationships, governance, or Canonical History. Application-specific views and workflow code MAY require reimplementation.",
+      "text_sha256": "3f42fca3a55df6ca082cc094c5d89b8a6f712e5b25dd7234aa1052333ce81d52",
+      "source": "spec/v0alpha1-draft2.2/portability.md"
+    },
+    {
+      "id": "PORT-RUNTIME-001",
+      "title": "Runtime independence",
+      "file": "portability.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "PORT-RUNTIME-001",
+        "file": "portability.md",
+        "text_sha256": "a0d3066282ad8316c2483fff485fc6d55675d62a74e04d307025e9ed57ec6fc3"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "note": "Synthesis proposed a pointer to the profile. Carried in portability.md prose and the profile.",
+      "text": "Interpreting portable Governed Object semantics and evaluating conformance MUST NOT require permission from, dependence on, or access to a particular runtime vendor or commercial service.",
+      "text_sha256": "a0d3066282ad8316c2483fff485fc6d55675d62a74e04d307025e9ed57ec6fc3",
+      "source": "spec/v0alpha1-draft2.2/portability.md"
+    },
+    {
+      "id": "PORT-EVOL-001",
+      "title": "Explicit portable evolution",
+      "file": "portability.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "PORT-EVOL-001",
+        "file": "portability.md",
+        "text_sha256": "a03acd17865b210f6764a7d72883c36711259884363c0d735b6e239296133e48"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "note": "Synthesis proposed \"transfer is not conversion\". Placed in TYPE-BIND-001, which already governs binding change; PORT-EVOL-001 is referenced unchanged.",
+      "text": "Specification, type, and schema conversions used to move portable objects between supported revisions MUST be explicit and inspectable. They MUST NOT silently discard Canonical Identity, accepted semantic meaning, or Canonical History.",
+      "text_sha256": "a03acd17865b210f6764a7d72883c36711259884363c0d735b6e239296133e48",
+      "source": "spec/v0alpha1-draft2.2/portability.md"
+    },
+    {
+      "id": "PORT-PROVIDER-001",
+      "title": "Profile preservation",
+      "file": "portability.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "PORT-PROVIDER-001",
+        "file": "portability.md",
+        "text_sha256": "4f62999f34d6c4209922a68b4e6e54e443f6411193393597f3f7ac83b7c8e829"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "An implementation claiming provider replacement under the Canonical Authority Profile MUST preserve the semantics required by `PB-DETACH-001` and `CA-REPLACE-001`. Provider Binding alone defines detachment, not replacement bootstrap.",
+      "text_sha256": "4f62999f34d6c4209922a68b4e6e54e443f6411193393597f3f7ac83b7c8e829",
+      "source": "spec/v0alpha1-draft2.2/portability.md"
+    },
+    {
+      "id": "PORT-RESTORE-001",
+      "title": "Restoration is not a canonical change",
+      "file": "portability.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "status": "NEW",
+      "ancestry": null,
+      "wording": "new",
+      "change": "Conditional: restoration, where performed, is not an accepted canonical change",
+      "text": "If an implementation restores previously accepted Canonical History for a Governed Object, whether from an export, a transfer, or another implementation, the act of restoration MUST NOT itself constitute an accepted canonical change. It MUST NOT append an entry to the restored object's Canonical History, MUST NOT by itself introduce a new accepted canonical revision or advance the current revision, and MUST NOT attribute the restoration, or authority for it, to actors recorded in the restored history. Evidence of the restoration MAY be retained outside Canonical History. This requirement applies only where restoration is performed. It does not require an implementation to support restoration.",
+      "text_sha256": "224c8016364191d54f067a7be027af78650ed01df3e6783ca45edf067b7a6b2f",
+      "source": "spec/v0alpha1-draft2.2/portability.md"
+    },
+    {
+      "id": "PORT-PRESERVE-001",
+      "title": "Faithful preservation or explicit refusal",
+      "file": "portability.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "status": "NEW",
+      "ancestry": null,
+      "wording": "new",
+      "change": "Conditional: a preservation claim means faithful preservation or explicit refusal; no silent degradation",
+      "text": "An implementation that claims to preserve a Governed Object's portable semantic content across export, transfer, or restoration, whether under `PORT-SEM-001`, under a claimed profile, or as a narrower declared claim, MUST, for the content within that claim, either preserve that content faithfully or refuse the operation explicitly, identifying the reason. Faithful preservation means that the semantic content, and its order where order is significant, is unchanged. A change of encoding or representation that leaves the semantic content unchanged is not an alteration. It MUST NOT silently omit, truncate, normalize, coerce, reorder where order is significant, reinterpret, or replace content within the claim, including content required by `PORT-SEM-001` or by a claimed profile. A narrower claim, such as a claim to preserve Accepted Canonical State only, constrains only the content it names and MUST NOT be presented as satisfying `PORT-SEM-001` or a profile. A limitation that the implementation declares before the operation and identifies when it applies is not silent. This requirement applies only where such a preservation claim is made.",
+      "text_sha256": "bb18e5be0b1d9a50a50b64eeb6046615be7348c0acf3d46401fac7b85e98b0dc",
+      "source": "spec/v0alpha1-draft2.2/portability.md"
+    },
+    {
+      "id": "CONF-CLAIM-001",
+      "title": "Declared conformance scope",
+      "file": "conformance.md",
+      "part": "core",
+      "profile": null,
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CONF-CLAIM-001",
+        "file": "conformance.md",
+        "text_sha256": "3a5dd1a1405e16d4aacfc3599d59ccd93b05f640a8e7d90ecf6045d663b509d4"
+      },
+      "status": "MATERIALLY_CHANGED",
+      "wording": "changed",
+      "change": "Identifies draft2.2; role-scoped profile claims; draft2 and draft2.1 results are not draft2.2 results; Core implies no profile; pairwise evidence is not conformance",
+      "text": "An implementation claiming conformance to this revision MUST:\n\n1. identify **Version `v0alpha1`** and **Revision `draft2.2`** exactly;\n2. claim Core;\n3. identify each optional profile, each role within an optional profile that defines roles, each conditional Core capability, and each provider/dimension capability scope it claims;\n4. satisfy every normative requirement applicable to those claims; and\n5. disclose documented deviations, unsupported provider dimensions, and unresolved encoding assumptions.\n\nA claim that identifies only `v0alpha1`, identifies another revision, or omits its revision is not a `v0alpha1 draft2.2` conformance claim. A result obtained against `v0alpha1 draft2` or `v0alpha1 draft2.1` MUST NOT be reported as a `v0alpha1 draft2.2` result, and conformance to one revision MUST NOT be inferred from conformance to another. A Core claim does not imply a claim of any optional profile or profile role. Evidence that two implementations exchanged objects successfully is not a conformance result for either. Because this revision is an Experimental Draft and no stable wire encoding exists, claims remain provisional. The existence of two implementations is evidence for the draft, not proof that either is conformant.",
+      "text_sha256": "d9a51920a5992e26581cb4dba322979565d9dc224f8309c7e0fdd0486647d754",
+      "source": "spec/v0alpha1-draft2.2/conformance.md"
+    },
+    {
+      "id": "DEL-MODEL-001",
+      "title": "Delegation dimensions",
+      "file": "profiles/delegation.md",
+      "part": "profile",
+      "profile": "Delegated Authority",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "DEL-MODEL-001",
+        "file": "profiles/delegation.md",
+        "text_sha256": "33e3293a2913b6e69267d030474548fb05de13453f308302a2ecfb97fcd29db7"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "A delegated-authority artifact MUST identify a principal, delegate, delegated capabilities or actions, status, and any supported scope, purpose, and validity bounds. Omitted dimensions MUST have documented semantics and MUST NOT silently grant broader authority than the principal can delegate.",
+      "text_sha256": "33e3293a2913b6e69267d030474548fb05de13453f308302a2ecfb97fcd29db7",
+      "source": "spec/v0alpha1-draft2.2/profiles/delegation.md"
+    },
+    {
+      "id": "DEL-NARROW-001",
+      "title": "Monotonic narrowing",
+      "file": "profiles/delegation.md",
+      "part": "profile",
+      "profile": "Delegated Authority",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "DEL-NARROW-001",
+        "file": "profiles/delegation.md",
+        "text_sha256": "89f3e919676b05dc533788f33eb006737b2249e1f68114970fb9bfa7c70ba7c7"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Effective delegated authority MUST be no broader than the authority available from its principal and every applicable upstream delegation. This narrowing MUST apply independently to each supported authority dimension, including capabilities, scope, purpose, and validity.",
+      "text_sha256": "89f3e919676b05dc533788f33eb006737b2249e1f68114970fb9bfa7c70ba7c7",
+      "source": "spec/v0alpha1-draft2.2/profiles/delegation.md"
+    },
+    {
+      "id": "DEL-CHAIN-001",
+      "title": "Child delegation",
+      "file": "profiles/delegation.md",
+      "part": "profile",
+      "profile": "Delegated Authority",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "DEL-CHAIN-001",
+        "file": "profiles/delegation.md",
+        "text_sha256": "90fbc24d428e3c3f4e8812bc8e2910d263350636861c86ed19e84adb57ca0f70"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "If delegated delegation is supported, a child delegation MUST NOT expand any authority dimension beyond its parent chain. Cycles MUST be rejected or made ineffective. This specification does not prescribe a maximum depth.",
+      "text_sha256": "90fbc24d428e3c3f4e8812bc8e2910d263350636861c86ed19e84adb57ca0f70",
+      "source": "spec/v0alpha1-draft2.2/profiles/delegation.md"
+    },
+    {
+      "id": "DEL-EFFECT-001",
+      "title": "Current effectiveness",
+      "file": "profiles/delegation.md",
+      "part": "profile",
+      "profile": "Delegated Authority",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "DEL-EFFECT-001",
+        "file": "profiles/delegation.md",
+        "text_sha256": "09cc35745e44ec8d150eef5552a5ef8adcaaffbbe2780f56c40ed8f3f10779e3"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Revoked, expired, not-yet-valid, or otherwise ineffective authority MUST NOT authorize an operation. If an upstream authority becomes ineffective, descendant authority derived from it MUST also become ineffective even if the descendant's stored status has not changed.",
+      "text_sha256": "09cc35745e44ec8d150eef5552a5ef8adcaaffbbe2780f56c40ed8f3f10779e3",
+      "source": "spec/v0alpha1-draft2.2/profiles/delegation.md"
+    },
+    {
+      "id": "DEL-TRUST-001",
+      "title": "Explicit trust root",
+      "file": "profiles/delegation.md",
+      "part": "profile",
+      "profile": "Delegated Authority",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "DEL-TRUST-001",
+        "file": "profiles/delegation.md",
+        "text_sha256": "29c2e59ea9af3313ff8104500943eb5e8d3acc91fbd90800138d0961a4067f6c"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "An implementation MUST document the trust root used to authenticate principals, resolve authority, and evaluate delegated authority without infinite recursion. The trust root is not required to be a Governed Object, but it MUST NOT be exposed as a general application authorization bypass.",
+      "text_sha256": "29c2e59ea9af3313ff8104500943eb5e8d3acc91fbd90800138d0961a4067f6c",
+      "source": "spec/v0alpha1-draft2.2/profiles/delegation.md"
+    },
+    {
+      "id": "OBS-MODEL-001",
+      "title": "Observation identity and provenance",
+      "file": "profiles/external-observation.md",
+      "part": "profile",
+      "profile": "External Observation",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "OBS-MODEL-001",
+        "file": "profiles/external-observation.md",
+        "text_sha256": "00a6466cfea568c5f43ebe5fe2ef1d37bdcd1c40dc98b9d277ed3d5e507fc85c"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "An External Observation MUST identify the target Canonical Identity, observation identity or deduplication identity, external source/provider identity, and observed semantic changes. It SHOULD carry observation time, provider event identity, Provider Version or sequence, external actor provenance, and source provenance when available.",
+      "text_sha256": "00a6466cfea568c5f43ebe5fe2ef1d37bdcd1c40dc98b9d277ed3d5e507fc85c",
+      "source": "spec/v0alpha1-draft2.2/profiles/external-observation.md"
+    },
+    {
+      "id": "OBS-SEPARATE-001",
+      "title": "Observation is not acceptance",
+      "file": "profiles/external-observation.md",
+      "part": "profile",
+      "profile": "External Observation",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "OBS-SEPARATE-001",
+        "file": "profiles/external-observation.md",
+        "text_sha256": "d84c8803da18e59f70b6da9a5a577f0ab970885fe795a3caf94c8169d4a4fe9a"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Receiving, hydrating, materializing, polling, or storing an External Observation MUST NOT by itself alter Accepted Canonical State or Object Version.",
+      "text_sha256": "d84c8803da18e59f70b6da9a5a577f0ab970885fe795a3caf94c8169d4a4fe9a",
+      "source": "spec/v0alpha1-draft2.2/profiles/external-observation.md"
+    },
+    {
+      "id": "OBS-AUTH-001",
+      "title": "Explicit per-dimension authority decision",
+      "file": "profiles/external-observation.md",
+      "part": "profile",
+      "profile": "External Observation",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "OBS-AUTH-001",
+        "file": "profiles/external-observation.md",
+        "text_sha256": "47b9c9e96afbc05f951f547e8c8a80547c243bebd05594a859ee5c50683f61b3"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Each observed semantic change MUST pass through an explicit authority/admission decision before acceptance. Authority MAY be field- or dimension-specific, and one observation MAY produce accepted, canonical-authoritative/rejected, and review-required outcomes for different changes.",
+      "text_sha256": "47b9c9e96afbc05f951f547e8c8a80547c243bebd05594a859ee5c50683f61b3",
+      "source": "spec/v0alpha1-draft2.2/profiles/external-observation.md"
+    },
+    {
+      "id": "OBS-REVIEW-001",
+      "title": "Resolvable review outcome",
+      "file": "profiles/external-observation.md",
+      "part": "profile",
+      "profile": "External Observation",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "OBS-REVIEW-001",
+        "file": "profiles/external-observation.md",
+        "text_sha256": "7db9fb68b2307f842c497caf4c9a43231b8e31323ed6029fac15c642e7da3d12"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "A review-required decision MUST create or reference a durable, resolvable review artifact. Resolving it MUST be a separate governed operation that authorizes the resolver and revalidates the proposed effect against current canonical state and `OBS-VALID-001`. The artifact MAY be a Governed Object or an implementation-defined record; `v0alpha1` does not prescribe its representation.",
+      "text_sha256": "7db9fb68b2307f842c497caf4c9a43231b8e31323ed6029fac15c642e7da3d12",
+      "source": "spec/v0alpha1-draft2.2/profiles/external-observation.md"
+    },
+    {
+      "id": "OBS-PROV-001",
+      "title": "Unknown actors are not fabricated",
+      "file": "profiles/external-observation.md",
+      "part": "profile",
+      "profile": "External Observation",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "OBS-PROV-001",
+        "file": "profiles/external-observation.md",
+        "text_sha256": "0059dae31e7786b36fc10a493d88683999cb92434289cbf69c24a6858b38dc8b"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "When an external actor is not known, the implementation MUST record unknown or unavailable provenance rather than invent an actor identity.",
+      "text_sha256": "0059dae31e7786b36fc10a493d88683999cb92434289cbf69c24a6858b38dc8b",
+      "source": "spec/v0alpha1-draft2.2/profiles/external-observation.md"
+    },
+    {
+      "id": "OBS-DEDUPE-001",
+      "title": "Duplicate semantic effects are prevented",
+      "file": "profiles/external-observation.md",
+      "part": "profile",
+      "profile": "External Observation",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "OBS-DEDUPE-001",
+        "file": "profiles/external-observation.md",
+        "text_sha256": "339491fcf9f97d809828766c4217920fa35ece64bd66b1d307f2c5f64598f3f8"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Repeated ingestion of the same externally identified observation MUST NOT produce duplicate accepted semantic changes or duplicate Canonical Events.",
+      "text_sha256": "339491fcf9f97d809828766c4217920fa35ece64bd66b1d307f2c5f64598f3f8",
+      "source": "spec/v0alpha1-draft2.2/profiles/external-observation.md"
+    },
+    {
+      "id": "OBS-ORDER-001",
+      "title": "Stale observation handling",
+      "file": "profiles/external-observation.md",
+      "part": "profile",
+      "profile": "External Observation",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "OBS-ORDER-001",
+        "file": "profiles/external-observation.md",
+        "text_sha256": "265731dd3985485b5e8d8ae9b872f05256eff6178ffa0e03c0b796a40f0747b5"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Where trustworthy provider ordering or version metadata is available, a stale observation MUST NOT regress Accepted Canonical State. Where no trustworthy ordering exists, the implementation MUST document that limitation rather than imply stale detection.",
+      "text_sha256": "265731dd3985485b5e8d8ae9b872f05256eff6178ffa0e03c0b796a40f0747b5",
+      "source": "spec/v0alpha1-draft2.2/profiles/external-observation.md"
+    },
+    {
+      "id": "OBS-VALID-001",
+      "title": "Authority does not bypass validity",
+      "file": "profiles/external-observation.md",
+      "part": "profile",
+      "profile": "External Observation",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "OBS-VALID-001",
+        "file": "profiles/external-observation.md",
+        "text_sha256": "ce654b7a8d1dc7effbfe16992818dc84124aa02ecab2a9c2e2e407d9fa626288"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Acceptance of an observed change MUST satisfy applicable structural, lifecycle, and domain/type invariants. A provider-authoritative or auto-admit rule MUST NOT bypass a declared lifecycle invariant.",
+      "text_sha256": "ce654b7a8d1dc7effbfe16992818dc84124aa02ecab2a9c2e2e407d9fa626288",
+      "source": "spec/v0alpha1-draft2.2/profiles/external-observation.md"
+    },
+    {
+      "id": "OBS-EFFECT-001",
+      "title": "Accepted and non-accepted effects",
+      "file": "profiles/external-observation.md",
+      "part": "profile",
+      "profile": "External Observation",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "OBS-EFFECT-001",
+        "file": "profiles/external-observation.md",
+        "text_sha256": "64585a153c8a1d2c688b71ac0bb096204c6ef9bf86ef3a649ed9bd0eb4de9d4f"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "An accepted observed change MUST update Accepted Canonical State, advance Object Version, and enter Canonical History with available provenance. A rejected, stale, duplicate, unchanged, or unresolved review outcome MUST NOT change Accepted Canonical State or Object Version.",
+      "text_sha256": "64585a153c8a1d2c688b71ac0bb096204c6ef9bf86ef3a649ed9bd0eb4de9d4f",
+      "source": "spec/v0alpha1-draft2.2/profiles/external-observation.md"
+    },
+    {
+      "id": "OBS-REL-001",
+      "title": "Provider relationship observations",
+      "file": "profiles/external-observation.md",
+      "part": "profile",
+      "profile": "External Observation",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "OBS-REL-001",
+        "file": "profiles/external-observation.md",
+        "text_sha256": "d5f273be9a57414558c85a7b465c6e01aa2a0abf00165987301f90e5ccb364c4"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "A provider-reported edge MUST remain an External Observation or a clearly classified non-canonical derived index unless explicit governed admission accepts it as a Canonical Relationship. An admitted addition or removal MUST satisfy the Core relationship mutation, Object Version, Canonical History, claimed replay, and portability requirements. Hydration, synchronization, or provider-edge disappearance MUST NOT silently create or remove a Canonical Relationship.",
+      "text_sha256": "d5f273be9a57414558c85a7b465c6e01aa2a0abf00165987301f90e5ccb364c4",
+      "source": "spec/v0alpha1-draft2.2/profiles/external-observation.md"
+    },
+    {
+      "id": "PB-MODEL-001",
+      "title": "Binding semantics",
+      "file": "profiles/provider-binding.md",
+      "part": "profile",
+      "profile": "Provider Binding",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "PB-MODEL-001",
+        "file": "profiles/provider-binding.md",
+        "text_sha256": "33caf026fbe70ac414d6c061b055a5e22d953dd650252ccdb58b84e80c829163"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "A Provider Binding MUST identify the canonical object, provider identity, and provider-native object identity needed to address the Provider Projection. It MAY include provider-specific synchronization metadata.",
+      "text_sha256": "33caf026fbe70ac414d6c061b055a5e22d953dd650252ccdb58b84e80c829163",
+      "source": "spec/v0alpha1-draft2.2/profiles/provider-binding.md"
+    },
+    {
+      "id": "PB-ID-001",
+      "title": "Canonical identity remains independent",
+      "file": "profiles/provider-binding.md",
+      "part": "profile",
+      "profile": "Provider Binding",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "PB-ID-001",
+        "file": "profiles/provider-binding.md",
+        "text_sha256": "ad29f3d4258add8b578218ad1b62b19f15327393efd19417a2f3d54fd3d30f64"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "A provider-native identifier MUST NOT replace or redefine Canonical Identity. Changing a binding or external identifier MUST NOT, by itself, create a new canonical object.",
+      "text_sha256": "ad29f3d4258add8b578218ad1b62b19f15327393efd19417a2f3d54fd3d30f64",
+      "source": "spec/v0alpha1-draft2.2/profiles/provider-binding.md"
+    },
+    {
+      "id": "PB-DETACH-001",
+      "title": "Detachment preservation",
+      "file": "profiles/provider-binding.md",
+      "part": "profile",
+      "profile": "Provider Binding",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "PB-DETACH-001",
+        "file": "profiles/provider-binding.md",
+        "text_sha256": "2e45e3c07c2cff5d34519aecdcb3f97bfec370fac384d7c571a1389b11a82b96"
+      },
+      "status": "CLARIFIED",
+      "wording": "changed",
+      "change": "Binding-only detachment produces no new Object Version or history entry",
+      "text": "Detaching a provider MUST preserve Canonical Identity, Accepted Canonical State, Canonical History, canonical Relationships, and governance semantics already accepted by the organization. Provider freshness and provider-only operational behavior MAY become unavailable. A detachment that changes only the Provider Binding or other Operational Metadata MUST NOT produce a new Object Version or a Canonical History entry (`CORE-LINEAGE-001`). If an accepted canonical change accompanies a detachment, that change follows the ordinary version and history requirements.",
+      "text_sha256": "5265b9b8eec6571efa2c44bbe8977e40808e17bcfa109c9be0962477616e04a4",
+      "source": "spec/v0alpha1-draft2.2/profiles/provider-binding.md"
+    },
+    {
+      "id": "PB-GAP-001",
+      "title": "Projection gaps preserve meaning",
+      "file": "profiles/provider-binding.md",
+      "part": "profile",
+      "profile": "Provider Binding",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "PB-GAP-001",
+        "file": "profiles/provider-binding.md",
+        "text_sha256": "3dabc123fb8d7dabde89f5d1c1ca12264d3fde0b6d53e2742e447e745f8c9ad9"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "If a provider cannot represent, observe, or operate a canonical field or semantic dimension, the implementation MUST retain the canonical meaning and MUST NOT silently remove or redefine it to fit the provider. The gap MUST be identifiable as a provider capability limitation.",
+      "text_sha256": "3dabc123fb8d7dabde89f5d1c1ca12264d3fde0b6d53e2742e447e745f8c9ad9",
+      "source": "spec/v0alpha1-draft2.2/profiles/provider-binding.md"
+    },
+    {
+      "id": "PB-TRANSLATE-001",
+      "title": "Provider vocabulary isolation",
+      "file": "profiles/provider-binding.md",
+      "part": "profile",
+      "profile": "Provider Binding",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "PB-TRANSLATE-001",
+        "file": "profiles/provider-binding.md",
+        "text_sha256": "e1fe80b07a3e71a11ded1bb72886fac2c113a2dba2ddc60e4484c29f45bf710f"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Provider-native field names, state codes, and identifiers MUST be translated at the binding/projection boundary and MUST NOT be required to interpret Canonical History or the portable type semantics.",
+      "text_sha256": "e1fe80b07a3e71a11ded1bb72886fac2c113a2dba2ddc60e4484c29f45bf710f",
+      "source": "spec/v0alpha1-draft2.2/profiles/provider-binding.md"
+    },
+    {
+      "id": "PB-READ-001",
+      "title": "Operational read failure",
+      "file": "profiles/provider-binding.md",
+      "part": "profile",
+      "profile": "Provider Binding",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "PB-READ-001",
+        "file": "profiles/provider-binding.md",
+        "text_sha256": "e88c4665e78a82e9ab4074514c89132e27d01f7e13d13f4728a2c6b2d6d6c78c"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "A provider read or availability failure MUST NOT alter Accepted Canonical State or create a Canonical Event. The implementation MAY return a distinct operational failure and MAY retain non-canonical operational audit evidence.",
+      "text_sha256": "e88c4665e78a82e9ab4074514c89132e27d01f7e13d13f4728a2c6b2d6d6c78c",
+      "source": "spec/v0alpha1-draft2.2/profiles/provider-binding.md"
+    },
+    {
+      "id": "PB-CAP-001",
+      "title": "Provider capability disclosure",
+      "file": "profiles/provider-binding.md",
+      "part": "profile",
+      "profile": "Provider Binding",
+      "level": "SHOULD",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "PB-CAP-001",
+        "file": "profiles/provider-binding.md",
+        "text_sha256": "a8e33dca54974b62ff50554307f4023b5664611eaaf9db3c776c803454493281"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "An implementation claiming this profile SHOULD be able to describe relevant provider capabilities, including:\n\n- representable canonical dimensions;\n- observable dimensions;\n- writable dimensions;\n- Provider Version or conditional-write support;\n- bootstrap support; and\n- external provenance availability.\n\n`v0alpha1` does not define a capability-discovery wire format or provider certification process.",
+      "text_sha256": "a8e33dca54974b62ff50554307f4023b5664611eaaf9db3c776c803454493281",
+      "source": "spec/v0alpha1-draft2.2/profiles/provider-binding.md"
+    },
+    {
+      "id": "CA-DRIFT-001",
+      "title": "Drift detection",
+      "file": "profiles/canonical-authority.md",
+      "part": "profile",
+      "profile": "Canonical Authority",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CA-DRIFT-001",
+        "file": "profiles/canonical-authority.md",
+        "text_sha256": "26f6e18c5870f7c70cbd773e56fd482747655eac15643209caa60b4787beda8e"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "The implementation MUST compare Accepted Canonical State with a normalized Provider Projection without treating the provider view as automatically accepted. It MUST identify the semantic dimensions that differ.",
+      "text_sha256": "26f6e18c5870f7c70cbd773e56fd482747655eac15643209caa60b4787beda8e",
+      "source": "spec/v0alpha1-draft2.2/profiles/canonical-authority.md"
+    },
+    {
+      "id": "CA-SCOPE-001",
+      "title": "Authorized repair scope",
+      "file": "profiles/canonical-authority.md",
+      "part": "profile",
+      "profile": "Canonical Authority",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CA-SCOPE-001",
+        "file": "profiles/canonical-authority.md",
+        "text_sha256": "165986e4060f7301a5422f1067732839d2ee3c39349b4180570d470b40d9cc45"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Automatic outbound repair MUST be limited to dimensions declared canonical-authoritative. A review-required dimension MAY become repairable only after a governed decision explicitly keeps the canonical value.",
+      "text_sha256": "165986e4060f7301a5422f1067732839d2ee3c39349b4180570d470b40d9cc45",
+      "source": "spec/v0alpha1-draft2.2/profiles/canonical-authority.md"
+    },
+    {
+      "id": "CA-AUTH-001",
+      "title": "Repair authority and provenance",
+      "file": "profiles/canonical-authority.md",
+      "part": "profile",
+      "profile": "Canonical Authority",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CA-AUTH-001",
+        "file": "profiles/canonical-authority.md",
+        "text_sha256": "57726bcf2916979a2c7118eb7b46f02d08f68d2c4d8aee44a64e09130f7a7208"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Every repair attempt MUST execute under an identifiable initiating authority, such as an authorized actor or bounded trusted controller, and MUST retain that initiating context in synchronization history. Automatic controller authority MUST be limited to declared canonical-authoritative dimensions and MUST NOT bypass a required human/review decision.",
+      "text_sha256": "57726bcf2916979a2c7118eb7b46f02d08f68d2c4d8aee44a64e09130f7a7208",
+      "source": "spec/v0alpha1-draft2.2/profiles/canonical-authority.md"
+    },
+    {
+      "id": "CA-DERIVE-001",
+      "title": "Canonical-derived values",
+      "file": "profiles/canonical-authority.md",
+      "part": "profile",
+      "profile": "Canonical Authority",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CA-DERIVE-001",
+        "file": "profiles/canonical-authority.md",
+        "text_sha256": "8001c3fd8110247f8d2c22c3827201707a849de3087b3b5145bce7375c2a9f6b"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Repair values MUST be derived from current Accepted Canonical State at application time. Arbitrary caller-supplied desired values MUST NOT use the repair path to create new canonical truth or bypass ordinary governed mutation.",
+      "text_sha256": "8001c3fd8110247f8d2c22c3827201707a849de3087b3b5145bce7375c2a9f6b",
+      "source": "spec/v0alpha1-draft2.2/profiles/canonical-authority.md"
+    },
+    {
+      "id": "CA-CANONICAL-PRE-001",
+      "title": "Canonical precondition",
+      "file": "profiles/canonical-authority.md",
+      "part": "profile",
+      "profile": "Canonical Authority",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CA-CANONICAL-PRE-001",
+        "file": "profiles/canonical-authority.md",
+        "text_sha256": "6864f097878443203064ddb2e3019bc2c9f7e8d4636ea6df16b58ccdc90eea0d"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Before applying a planned repair, the implementation MUST verify that the relevant Canonical Precondition still matches. If canonical state changed, the stale repair MUST NOT reach the provider.",
+      "text_sha256": "6864f097878443203064ddb2e3019bc2c9f7e8d4636ea6df16b58ccdc90eea0d",
+      "source": "spec/v0alpha1-draft2.2/profiles/canonical-authority.md"
+    },
+    {
+      "id": "CA-PROVIDER-PRE-001",
+      "title": "Provider precondition",
+      "file": "profiles/canonical-authority.md",
+      "part": "profile",
+      "profile": "Canonical Authority",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CA-PROVIDER-PRE-001",
+        "file": "profiles/canonical-authority.md",
+        "text_sha256": "d908195f18544523d9f7d81a68db86ca3dac2109cfbc4de0af4bb2cc537f0a47"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Before or atomically with provider mutation, the implementation MUST verify that the relevant Provider Precondition still matches. If provider state changed, the stale repair MUST NOT overwrite the newer Provider Projection.",
+      "text_sha256": "d908195f18544523d9f7d81a68db86ca3dac2109cfbc4de0af4bb2cc537f0a47",
+      "source": "spec/v0alpha1-draft2.2/profiles/canonical-authority.md"
+    },
+    {
+      "id": "CA-CONFLICT-001",
+      "title": "Distinct conflict outcomes",
+      "file": "profiles/canonical-authority.md",
+      "part": "profile",
+      "profile": "Canonical Authority",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CA-CONFLICT-001",
+        "file": "profiles/canonical-authority.md",
+        "text_sha256": "ce4444196ff371ae4cfcd639091bff686a277956eb47b6014c078ba9b87654f6"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Canonical-precondition and provider-precondition failures MUST be distinguishable operational outcomes. Neither outcome may change Accepted Canonical State or imply successful provider repair.",
+      "text_sha256": "ce4444196ff371ae4cfcd639091bff686a277956eb47b6014c078ba9b87654f6",
+      "source": "spec/v0alpha1-draft2.2/profiles/canonical-authority.md"
+    },
+    {
+      "id": "CA-EFFECT-001",
+      "title": "Repair is synchronization only",
+      "file": "profiles/canonical-authority.md",
+      "part": "profile",
+      "profile": "Canonical Authority",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CA-EFFECT-001",
+        "file": "profiles/canonical-authority.md",
+        "text_sha256": "25771c85b72b31b63d97e1a4d0ceeb5436568a55e06759b35e9b6b6095625f11"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Applying an outbound repair MUST NOT mutate Accepted Canonical State, advance Object Version, or create a Canonical Event when canonical state was already accepted. Repair requests, results, and failures MAY be retained as separate synchronization history.",
+      "text_sha256": "25771c85b72b31b63d97e1a4d0ceeb5436568a55e06759b35e9b6b6095625f11",
+      "source": "spec/v0alpha1-draft2.2/profiles/canonical-authority.md"
+    },
+    {
+      "id": "CA-ECHO-001",
+      "title": "Echo deduplication",
+      "file": "profiles/canonical-authority.md",
+      "part": "profile",
+      "profile": "Canonical Authority",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CA-ECHO-001",
+        "file": "profiles/canonical-authority.md",
+        "text_sha256": "a9b9d3d113000b318ca813055d0163365d3fa1e13a05aef7c16822b5bc6b5f7a"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "A provider observation caused by a successful repair MUST NOT create a duplicate accepted semantic change or Canonical Event.",
+      "text_sha256": "a9b9d3d113000b318ca813055d0163365d3fa1e13a05aef7c16822b5bc6b5f7a",
+      "source": "spec/v0alpha1-draft2.2/profiles/canonical-authority.md"
+    },
+    {
+      "id": "CA-REPLACE-001",
+      "title": "Provider replacement preservation",
+      "file": "profiles/canonical-authority.md",
+      "part": "profile",
+      "profile": "Canonical Authority",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "CA-REPLACE-001",
+        "file": "profiles/canonical-authority.md",
+        "text_sha256": "51de6a6734d79da162eb609a66d9ea0e6b3654e8cb9b8b86cdcbf4ea3c4cebcc"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Replacing a provider MUST preserve Canonical Identity, Accepted Canonical State, Canonical History, canonical Relationships, and governance semantics. The new Provider Projection MUST be derived from Accepted Canonical State for every supported projected dimension. Binding identity, external ID, provider-native representation, and synchronization metadata MAY change.",
+      "text_sha256": "51de6a6734d79da162eb609a66d9ea0e6b3654e8cb9b8b86cdcbf4ea3c4cebcc",
+      "source": "spec/v0alpha1-draft2.2/profiles/canonical-authority.md"
+    },
+    {
+      "id": "AGENT-ACTOR-001",
+      "title": "Agent uses ordinary authority",
+      "file": "profiles/agent-operation.md",
+      "part": "profile",
+      "profile": "Agent Operation",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "AGENT-ACTOR-001",
+        "file": "profiles/agent-operation.md",
+        "text_sha256": "faa2cd8eab4a90de93141140688bf5ca8c0cc424076da472ee1f1eb402cb3cd5"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "An agent MUST act through the same governed operation and authorization semantics as other actors. Agent status MUST NOT provide an authorization bypass.",
+      "text_sha256": "faa2cd8eab4a90de93141140688bf5ca8c0cc424076da472ee1f1eb402cb3cd5",
+      "source": "spec/v0alpha1-draft2.2/profiles/agent-operation.md"
+    },
+    {
+      "id": "AGENT-AUTH-001",
+      "title": "Reasoning grants no authority",
+      "file": "profiles/agent-operation.md",
+      "part": "profile",
+      "profile": "Agent Operation",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "AGENT-AUTH-001",
+        "file": "profiles/agent-operation.md",
+        "text_sha256": "91213f8c333a2ec2065a058076a7d742b71047a1627dee903a7d6433a6a2754d"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "A model or agent proposal MUST NOT gain authority merely because it selected an object, action, parameter, tool, or expected version. The runtime MUST independently evaluate the bound actor and every applicable application, delegation, purpose, and object-policy constraint.",
+      "text_sha256": "91213f8c333a2ec2065a058076a7d742b71047a1627dee903a7d6433a6a2754d",
+      "source": "spec/v0alpha1-draft2.2/profiles/agent-operation.md"
+    },
+    {
+      "id": "AGENT-BIND-001",
+      "title": "Authority context is trusted input",
+      "file": "profiles/agent-operation.md",
+      "part": "profile",
+      "profile": "Agent Operation",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "AGENT-BIND-001",
+        "file": "profiles/agent-operation.md",
+        "text_sha256": "1bcf4225cf311f037095bef83bb305561d61c88a01024b87ce0fa185571df5ad"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Authority-bearing identity and context MUST be bound or verified outside untrusted model output. A model MUST NOT be able to replace actor, principal, application, mandate, or purpose identity by supplying operation arguments.",
+      "text_sha256": "1bcf4225cf311f037095bef83bb305561d61c88a01024b87ce0fa185571df5ad",
+      "source": "spec/v0alpha1-draft2.2/profiles/agent-operation.md"
+    },
+    {
+      "id": "AGENT-TRACE-001",
+      "title": "Trace separation",
+      "file": "profiles/agent-operation.md",
+      "part": "profile",
+      "profile": "Agent Operation",
+      "level": "MUST",
+      "ancestry": {
+        "revision": "draft2.1",
+        "id": "AGENT-TRACE-001",
+        "file": "profiles/agent-operation.md",
+        "text_sha256": "7dca6f490e74113dd8ecbc2350b72326ad6eec0bd708eaacf17b8575dcf73a2e"
+      },
+      "status": "UNCHANGED",
+      "wording": "identical",
+      "text": "Model reasoning, prompts, tool traces, and chain-of-thought MUST NOT be required to interpret Canonical History or replay Accepted Canonical State. Operational traces MAY be retained separately subject to applicable security and privacy policy.",
+      "text_sha256": "7dca6f490e74113dd8ecbc2350b72326ad6eec0bd708eaacf17b8575dcf73a2e",
+      "source": "spec/v0alpha1-draft2.2/profiles/agent-operation.md"
+    },
+    {
+      "id": "PRC-CLAIM-001",
+      "title": "Role-scoped claims",
+      "file": "profiles/portable-restoration-continuity.md",
+      "part": "profile",
+      "profile": "Portable Restoration Continuity",
+      "level": "MUST",
+      "status": "NEW",
+      "roles": [
+        "Exporter",
+        "Restorer"
+      ],
+      "ancestry": null,
+      "wording": "new",
+      "text": "An implementation claiming this profile MUST identify which roles it claims, Exporter, Restorer, or both, and MUST satisfy every requirement of this profile applicable to each claimed role. A requirement, or part of a requirement, whose subject is an Exporter or a portable representation an Exporter produces applies to the Exporter role. One whose subject is a Restorer applies to the Restorer role. A Restorer MUST refuse a portable representation, from any source, that does not satisfy what this profile requires of portable representations. A claim of one role MUST NOT be taken to imply the other. A Restorer claim MUST include `PRC-TOKEN-001`, `PRC-TOKEN-002`, `PRC-CONT-001`, and `PRC-HANDOFF-001`. Evidence that a named pair of implementations exported and restored objects between themselves is evidence about that pair, and MUST NOT be reported as profile conformance of either implementation.",
+      "text_sha256": "418340a23c0d555fcf551756d6b42eba2b0047df3192fb0a9eee701322c8b601",
+      "source": "spec/v0alpha1-draft2.2/profiles/portable-restoration-continuity.md"
+    },
+    {
+      "id": "PRC-EXPORT-001",
+      "title": "Portable representation content",
+      "file": "profiles/portable-restoration-continuity.md",
+      "part": "profile",
+      "profile": "Portable Restoration Continuity",
+      "level": "MUST",
+      "status": "NEW",
+      "roles": [
+        "Exporter"
+      ],
+      "ancestry": null,
+      "wording": "new",
+      "text": "For each exported object, an Exporter MUST produce a portable representation that carries, as semantic content: Canonical Identity; Type Identity and bound Type Version; Accepted Canonical State; Canonical Relationships as a set of distinct relationships, including relationships whose targets are outside the export; the governance reference required by `PRC-GOV-001`; the current Object Version, exactly as the Exporter exposes it; the complete Canonical History required by `PRC-HIST-001`, including any Canonical Relationships present in the creation or Replay Baseline revision, in the order required by `PRC-ORDER-001`; and the specification revision under which the content is claimed. It MUST NOT present as canonical content any storage key, runtime record identifier presented as identity, rejection or audit record, credential, grant, trust configuration, policy content, or optional-profile operational data. A current snapshot MAY accompany the history.",
+      "text_sha256": "f8769466efac5d70ea2d52791256a130715826b25f69542d0e91ce69eecf8390",
+      "source": "spec/v0alpha1-draft2.2/profiles/portable-restoration-continuity.md"
+    },
+    {
+      "id": "PRC-EXPORT-002",
+      "title": "Export is a complete governed read",
+      "file": "profiles/portable-restoration-continuity.md",
+      "part": "profile",
+      "profile": "Portable Restoration Continuity",
+      "level": "MUST",
+      "status": "NEW",
+      "roles": [
+        "Exporter"
+      ],
+      "ancestry": null,
+      "wording": "new",
+      "text": "An Exporter MUST perform export as a governed read of every included object under the requester's effective authority. If the requester is not authorized to read all content required by `PRC-EXPORT-001` for an object, or the Exporter cannot determine whether a record represents an accepted canonical change, the Exporter MUST refuse to export that object. It MUST NOT omit, redact, or guess at content and present the result as a portable representation under this profile. A denied export is subject to `AUTH-DISCLOSE-001`.",
+      "text_sha256": "ff7b0d2727621e07627befe7356d2f0204a573048a49713626d1d5286d04a7c4",
+      "source": "spec/v0alpha1-draft2.2/profiles/portable-restoration-continuity.md"
+    },
+    {
+      "id": "PRC-HIST-001",
+      "title": "Complete accepted history",
+      "file": "profiles/portable-restoration-continuity.md",
+      "part": "profile",
+      "profile": "Portable Restoration Continuity",
+      "level": "MUST",
+      "status": "NEW",
+      "roles": [
+        "Exporter",
+        "Restorer"
+      ],
+      "ancestry": null,
+      "wording": "new",
+      "text": "A portable representation MUST carry the complete Canonical History of the object required by `CORE-HIST-001`, from its creation or Replay Baseline revision to its current revision, without gaps. It MUST identify the first revision it carries as the object's creation or Replay Baseline revision, and MUST carry that revision's initial accepted canonical representation, Type Identity and Type Version, and Object Version. Each later entry MUST carry its accepted semantic effect, applicable Type Identity and Type Version, and resulting Object Version, together with provenance as governed by `PRC-EVID-001`. The history MUST contain only accepted canonical changes. It MUST NOT include authorization denials, semantic invalidity, conflicts, reads, accepted no-ops, or records of export or restoration. The current Object Version MUST equal the resulting Object Version of the last history entry, or of the baseline revision if there is no later entry. A Restorer MUST refuse a representation that does not identify its first revision in this way, or whose history is otherwise detectably incomplete.",
+      "text_sha256": "89084a257098cba6b1ae2ae89b5f4b6b1d1e74ff465c27c5b5137186d7a692b9",
+      "source": "spec/v0alpha1-draft2.2/profiles/portable-restoration-continuity.md"
+    },
+    {
+      "id": "PRC-ORDER-001",
+      "title": "Explicit history order",
+      "file": "profiles/portable-restoration-continuity.md",
+      "part": "profile",
+      "profile": "Portable Restoration Continuity",
+      "level": "MUST",
+      "status": "NEW",
+      "roles": [
+        "Exporter",
+        "Restorer"
+      ],
+      "ancestry": null,
+      "wording": "new",
+      "text": "A portable representation MUST make the per-object order required by `EVT-ORDER-001` explicit and unambiguous as part of the representation. A Restorer MUST NOT infer that order from timestamps or Object Version values, or from element or storage order unless the representation defines that order as the history order. A Restorer MUST preserve the order exactly, and MUST refuse a representation whose order is missing or ambiguous.",
+      "text_sha256": "4b1c764cd6f80bd6861d38b8fe3dae4e2a1a4b2ad1155ca8fb57d4b9865df5d7",
+      "source": "spec/v0alpha1-draft2.2/profiles/portable-restoration-continuity.md"
+    },
+    {
+      "id": "PRC-TOKEN-001",
+      "title": "Exact Object Version preservation",
+      "file": "profiles/portable-restoration-continuity.md",
+      "part": "profile",
+      "profile": "Portable Restoration Continuity",
+      "level": "MUST",
+      "status": "NEW",
+      "roles": [
+        "Restorer"
+      ],
+      "ancestry": null,
+      "wording": "new",
+      "text": "A Restorer MUST preserve the current Object Version and every resulting Object Version recorded in the restored Canonical History exactly, as opaque values compared only for equality. It MUST NOT parse, renumber, normalize, reissue, or remap them. A Restorer that cannot represent an Object Version value exactly MUST refuse restoration of that object. This requirement does not require any particular Object Version syntax, value domain, or ordering.",
+      "text_sha256": "a842b737bc4215c5a35a93be28d639906e3e4f99d686301f495462ff0ceb3e84",
+      "source": "spec/v0alpha1-draft2.2/profiles/portable-restoration-continuity.md"
+    },
+    {
+      "id": "PRC-TOKEN-002",
+      "title": "Object Version continuity",
+      "file": "profiles/portable-restoration-continuity.md",
+      "part": "profile",
+      "profile": "Portable Restoration Continuity",
+      "level": "MUST",
+      "status": "NEW",
+      "roles": [
+        "Restorer"
+      ],
+      "ancestry": null,
+      "wording": "new",
+      "text": "After restoration, a Restorer MUST treat the restored current Object Version as the current Object Version for `CON-CONFLICT-001`. It MUST treat every other restored Object Version, and every value never issued for the object, as stale. Every Object Version it subsequently issues for the object MUST differ from every restored Object Version (`CON-UNIQUE-001`).",
+      "text_sha256": "a386e49a59ae17aa495b7f1e915d543f0b3eb6a9c3d74aaeea8426b8a3fe25c2",
+      "source": "spec/v0alpha1-draft2.2/profiles/portable-restoration-continuity.md"
+    },
+    {
+      "id": "PRC-GOV-001",
+      "title": "Local governance resolution",
+      "file": "profiles/portable-restoration-continuity.md",
+      "part": "profile",
+      "profile": "Portable Restoration Continuity",
+      "level": "MUST",
+      "status": "NEW",
+      "roles": [
+        "Exporter",
+        "Restorer"
+      ],
+      "ancestry": null,
+      "wording": "new",
+      "text": "A portable representation MUST carry a governance reference for each object, preserved exactly. A Restorer MUST resolve that reference against its own governance configuration for the object's type binding, and MUST refuse restoration if the reference is missing or does not resolve. Resolution MUST NOT import grants, policy content, principals, credentials, or trust configuration. Neither the reference nor any restored content confers authority (`AUTH-BASE-001`). If a restored object's reference later ceases to resolve, an operation requiring authorization under it MUST NOT be accepted on the basis of that reference.",
+      "text_sha256": "55b43ef2bbe18e63c1667904260afa7b834e0303dd7c1e6669db9bd9fba9e8ec",
+      "source": "spec/v0alpha1-draft2.2/profiles/portable-restoration-continuity.md"
+    },
+    {
+      "id": "PRC-CAP-001",
+      "title": "Restorer capability declaration",
+      "file": "profiles/portable-restoration-continuity.md",
+      "part": "profile",
+      "profile": "Portable Restoration Continuity",
+      "level": "MUST",
+      "status": "NEW",
+      "roles": [
+        "Restorer"
+      ],
+      "ancestry": null,
+      "wording": "new",
+      "text": "A Restorer MUST declare, semantically:\n\n- the specification revisions it restores;\n- the Type Identity and Type Version bindings it supports;\n- the Object Version value forms it can hold exactly;\n- whether it supports Canonical Relationships in a baseline revision;\n- the precision of time evidence it retains;\n- any provenance it requires;\n- the evidence level it achieves under `PRC-EVID-001`; and\n- whether a multi-object restoration is all-or-nothing.\n\nIt MUST refuse content outside its declared capabilities and MUST NOT adapt that content to fit them (`PORT-PRESERVE-001`). Provenance that it declares it does not retain, under `PRC-EVID-001`, is not outside its declared capabilities. This requirement does not define a declaration encoding or discovery mechanism.",
+      "text_sha256": "ed39460ce9ac89cb6ae5b76c5cb0b01adc789794cb9e411a0cb7921cfbbc3dcc",
+      "source": "spec/v0alpha1-draft2.2/profiles/portable-restoration-continuity.md"
+    },
+    {
+      "id": "PRC-REFUSE-001",
+      "title": "Explicit refusal",
+      "file": "profiles/portable-restoration-continuity.md",
+      "part": "profile",
+      "profile": "Portable Restoration Continuity",
+      "level": "MUST",
+      "status": "NEW",
+      "roles": [
+        "Exporter",
+        "Restorer"
+      ],
+      "ancestry": null,
+      "wording": "new",
+      "text": "An Exporter or Restorer that refuses to export or restore an object MUST identify the object and the class of reason. Examples include an unsupported specification revision or type binding, an unsupported Object Version form or other unsupported feature, incomplete or inconsistent history, a repeated Object Version, a snapshot that does not match the history, an identity collision, an unresolved governance reference, and content outside declared capabilities. Reason labels are not standardized. A refusal MUST NOT be replaced by silent degradation (`PORT-PRESERVE-001`). Refusal reasons MUST be returned only to a requester authorized to perform the export or restoration. A refusal is not an accepted canonical change, and a refused restoration MUST leave the target implementation's canonical content unchanged.",
+      "text_sha256": "00be544c286477455ddad542146ddfb1529fac251998ecddd8af698daf78b052",
+      "source": "spec/v0alpha1-draft2.2/profiles/portable-restoration-continuity.md"
+    },
+    {
+      "id": "PRC-NEW-001",
+      "title": "New identities only",
+      "file": "profiles/portable-restoration-continuity.md",
+      "part": "profile",
+      "profile": "Portable Restoration Continuity",
+      "level": "MUST",
+      "status": "NEW",
+      "roles": [
+        "Restorer"
+      ],
+      "ancestry": null,
+      "wording": "new",
+      "text": "A Restorer MUST refuse to restore an object whose Canonical Identity already exists in the target implementation, and MUST NOT merge restored content into, overwrite, replace, or reconcile it with an existing object. This profile defines no other handling of an existing identity. A relationship whose target identity already exists in the target implementation is not a collision.",
+      "text_sha256": "2ea502a205f7a10a5f9f149d7b4c970cb8ef69d3c2e1b9b45d2d8f106eb88b2e",
+      "source": "spec/v0alpha1-draft2.2/profiles/portable-restoration-continuity.md"
+    },
+    {
+      "id": "PRC-VALID-001",
+      "title": "Validation before restoration",
+      "file": "profiles/portable-restoration-continuity.md",
+      "part": "profile",
+      "profile": "Portable Restoration Continuity",
+      "level": "MUST",
+      "status": "NEW",
+      "roles": [
+        "Restorer"
+      ],
+      "ancestry": null,
+      "wording": "new",
+      "text": "Before a restored object becomes observable, a Restorer MUST verify at least that:\n\n- the specification revision and type binding are supported (`TYPE-SUPPORT-001`);\n- each history entry's recorded effect is well-formed for the declared Type Identity and Type Version;\n- the history is complete and explicitly ordered (`PRC-HIST-001`, `PRC-ORDER-001`);\n- no Object Version value is repeated within the object's history;\n- the current Object Version equals the last resulting Object Version;\n- any accompanying snapshot equals the result of applying the history from its baseline;\n- the governance reference resolves (`PRC-GOV-001`); and\n- the content is within its declared capabilities (`PRC-CAP-001`).\n\nIf any check fails, the Restorer MUST refuse restoration of the object. It MUST NOT repair, reorder, complete, or otherwise alter the content to make it pass.",
+      "text_sha256": "5c1ec8b41b11e10563ee6864f8a8d20610b71961fa784a193b21bc3aec45d1d4",
+      "source": "spec/v0alpha1-draft2.2/profiles/portable-restoration-continuity.md"
+    },
+    {
+      "id": "PRC-AUTH-001",
+      "title": "Restoration authority",
+      "file": "profiles/portable-restoration-continuity.md",
+      "part": "profile",
+      "profile": "Portable Restoration Continuity",
+      "level": "MUST",
+      "status": "NEW",
+      "roles": [
+        "Restorer"
+      ],
+      "ancestry": null,
+      "wording": "new",
+      "text": "A Restorer MUST require, for restoration, authority to restore, distinct from authority to create, read, or mutate objects. Authority to restore MUST NOT by itself confer authority to create, read, or mutate the restored object. Authority to create or mutate objects MUST NOT by itself confer authority to restore. An unauthorized restoration MUST be denied, with no restored object observable, and is subject to `AUTH-DISCLOSE-001`.",
+      "text_sha256": "b987fc86e955952591d19a6b2b42c5e35ea5586c5c1c06c9882064312937f0bf",
+      "source": "spec/v0alpha1-draft2.2/profiles/portable-restoration-continuity.md"
+    },
+    {
+      "id": "PRC-NOEXEC-001",
+      "title": "History is not re-executed",
+      "file": "profiles/portable-restoration-continuity.md",
+      "part": "profile",
+      "profile": "Portable Restoration Continuity",
+      "level": "MUST",
+      "status": "NEW",
+      "roles": [
+        "Restorer"
+      ],
+      "ancestry": null,
+      "wording": "new",
+      "text": "A Restorer MUST NOT re-execute or re-authorize restored history entries against current governance. It MUST NOT invoke external side effects for them, or attribute them to the restoring actor. Actors recorded in restored history gain no authority from that record (`AUTH-BASE-001`). Restoration MUST NOT depend on whether those actors exist, or have any authority, in the target implementation.",
+      "text_sha256": "5965031e2442120474dc1ebfa4b5c5331eeb7721dc4019e7c40dd1481e936c26",
+      "source": "spec/v0alpha1-draft2.2/profiles/portable-restoration-continuity.md"
+    },
+    {
+      "id": "PRC-NOREV-001",
+      "title": "Restoration adds no revision",
+      "file": "profiles/portable-restoration-continuity.md",
+      "part": "profile",
+      "profile": "Portable Restoration Continuity",
+      "level": "MUST",
+      "status": "NEW",
+      "roles": [
+        "Restorer"
+      ],
+      "ancestry": null,
+      "wording": "new",
+      "text": "A Restorer MUST ensure that, after restoration, the object's Canonical History equals the restored history in number of entries, order, accepted effects, and resulting Object Versions, and that its current Object Version equals the representation's current Object Version. The Restorer MUST NOT append an entry recording the restoration (`PORT-RESTORE-001`). Restoration provenance MAY be retained outside Canonical History.",
+      "text_sha256": "7f5976add3980a6c1116a3c89bbea66bbfd35cb452e7acae0af491c94eee14fe",
+      "source": "spec/v0alpha1-draft2.2/profiles/portable-restoration-continuity.md"
+    },
+    {
+      "id": "PRC-ATOMIC-001",
+      "title": "Per-object atomicity and exact reporting",
+      "file": "profiles/portable-restoration-continuity.md",
+      "part": "profile",
+      "profile": "Portable Restoration Continuity",
+      "level": "MUST",
+      "status": "NEW",
+      "roles": [
+        "Restorer"
+      ],
+      "ancestry": null,
+      "wording": "new",
+      "text": "A Restorer MUST restore each object completely or not make it observable at all. Observable means available through any governed read, query, traversal, mutation, or export of the target implementation. This requirement does not prescribe locking, transactions, or any other mechanism. A Restorer handling several objects in one restoration request MUST report exactly which objects were restored and which were refused. It MUST NOT report the request as successful if any object was refused. Unless the Restorer declares all-or-nothing multi-object restoration under `PRC-CAP-001`, a request in which some objects are restored and others refused conforms if it is reported exactly. A Restorer that declares all-or-nothing restoration MUST NOT make any object of a request observable unless every object of that request is restored. This requirement defines no multi-object transaction semantics.",
+      "text_sha256": "7c60ccec0b998f659752c49337d6dc2f085214812d300ce9f104f3566683aa6f",
+      "source": "spec/v0alpha1-draft2.2/profiles/portable-restoration-continuity.md"
+    },
+    {
+      "id": "PRC-EVID-001",
+      "title": "Exact effects and declared evidence fidelity",
+      "file": "profiles/portable-restoration-continuity.md",
+      "part": "profile",
+      "profile": "Portable Restoration Continuity",
+      "level": "MUST",
+      "status": "NEW",
+      "roles": [
+        "Exporter",
+        "Restorer"
+      ],
+      "ancestry": null,
+      "wording": "new",
+      "text": "Exporters and Restorers MUST preserve accepted semantic effects, order, and resulting Object Versions exactly (`PRC-ORDER-001`, `PRC-TOKEN-001`). Each provenance item carried in a portable representation MUST be either preserved exactly or declared not retained (`PRC-CAP-001`). For this requirement, relationship metadata that does not participate in relationship equality under `REL-EQUAL-001` is provenance. It MUST NOT be altered, approximated, rounded, or invented. A Restorer that requires a provenance item that is absent MUST refuse restoration. A Restorer MUST declare which of two evidence levels it achieves:\n\n- **effect-equivalent:** accepted effects, order, and Object Versions are exact, and provenance is retained as declared; or\n- **evidence-preserving:** effect-equivalent, and every carried provenance item is retained exactly.\n\nThis requirement does not enumerate provenance kinds and does not require any particular provenance, such as actor identity, to be present.",
+      "text_sha256": "beff4a14cdfa561435780e450977e2b49b23a6d4f3e1c60e8773dbf74db5fc67",
+      "source": "spec/v0alpha1-draft2.2/profiles/portable-restoration-continuity.md"
+    },
+    {
+      "id": "PRC-HANDOFF-001",
+      "title": "Declared single-authority handoff",
+      "file": "profiles/portable-restoration-continuity.md",
+      "part": "profile",
+      "profile": "Portable Restoration Continuity",
+      "level": "MUST",
+      "status": "NEW",
+      "roles": [
+        "Restorer"
+      ],
+      "ancestry": null,
+      "wording": "new",
+      "text": "A Restorer claim MUST declare how a single accepting authority, meaning a single implementation that accepts canonical changes, is maintained for each restored identity across the handoff from the source. The source is the implementation whose Canonical History the portable representation carries. Examples include retiring the source, making the source read-only for the identity, or an operator procedure. The declared handoff MUST be one under which the source accepts no canonical change for the identity after the revision carried in the portable representation, so that the source's and the Restorer's accepted revisions form one lineage (`CORE-LINEAGE-001`). The declaration is an assumption of the claim. The Restorer is not required to enforce or verify it, and this profile defines no fencing, lease, consensus, or handoff protocol. It does not cover replication, multi-master operation, concurrent authority, or history merge, and a claim of this profile implies no safety for them.",
+      "text_sha256": "804ac33a16cc22029c1792e7a712b144bb1aad4fb57f1c4858c052743ede222f",
+      "source": "spec/v0alpha1-draft2.2/profiles/portable-restoration-continuity.md"
+    },
+    {
+      "id": "PRC-CONT-001",
+      "title": "Behavioral continuity",
+      "file": "profiles/portable-restoration-continuity.md",
+      "part": "profile",
+      "profile": "Portable Restoration Continuity",
+      "level": "MUST",
+      "status": "NEW",
+      "roles": [
+        "Restorer"
+      ],
+      "ancestry": null,
+      "wording": "new",
+      "text": "A Restorer MUST make each restored object subject to every Core requirement as an object of the Restorer whose Canonical History is the restored history, with no exemption for restored objects and no dependence on the source implementation. If the Restorer also claims the Exporter role, a later export of the object MUST carry the restored content together with every change accepted after restoration, and MUST satisfy `PRC-EXPORT-001`.",
+      "text_sha256": "fa340d048100dd7ca7b106ca6acf4de3e04e19f20e3750e8f48452766fb4ae09",
+      "source": "spec/v0alpha1-draft2.2/profiles/portable-restoration-continuity.md"
+    }
+  ]
+}
